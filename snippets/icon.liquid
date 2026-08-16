@@ -44,4 +44,16 @@
     <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="currentColor"><path d="M7 15c-1.7 0-3-1.3-3-3 0-3.3 2.2-6 5-7l.6 1.4C7.6 7 6.4 8.5 6.1 10c.3-.1.6-.1.9-.1 1.7 0 3 1.3 3 3s-1.3 3-3 3Zm10 0c-1.7 0-3-1.3-3-3 0-3.3 2.2-6 5-7l.6 1.4c-2 .6-3.2 2.1-3.5 3.6.3-.1.6-.1.9-.1 1.7 0 3 1.3 3 3s-1.3 3-3 3Z"/></svg>
   {%- when 'trash' -%}
     <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+  {%- when 'bag' -%}
+    <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8h12l1 13H5L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+  {%- when 'user' -%}
+    <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c1.5-4 4.5-6 7.5-6s6 2 7.5 6"/></svg>
+  {%- when 'vase' -%}
+    <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M9 3h6M10 3c0 2-2 3-2 6a4 4 0 0 0 8 0c0-3-2-4-2-6"/><path d="M8 13c-1 2-1 4 0 6a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2c1-2 1-4 0-6"/></svg>
+  {%- when 'heart' -%}
+    <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7.5-4.6-10-9.3C0.3 7.2 2 4 5.4 4c2 0 3.6 1.2 4.6 2.8C11 5.2 12.6 4 14.6 4 18 4 19.7 7.2 22 10.7 19.5 15.4 12 20 12 20Z"/></svg>
+  {%- when 'truck' -%}
+    <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="7" width="13" height="9" rx="1"/><path d="M14.5 10h4l3 3v3h-7z"/><circle cx="6" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>
+  {%- when 'sparkle' -%}
+    <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg>
 {%- endcase -%}

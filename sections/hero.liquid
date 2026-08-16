@@ -18,10 +18,12 @@
   </div>
 
   <div class="hero__content container" data-reveal>
+    <span class="hero__icon">{% render 'icon', name: 'leaf', size: 30 %}</span>
     {%- if section.settings.eyebrow != blank -%}
       <p class="hero__eyebrow">{{ section.settings.eyebrow }}</p>
     {%- endif -%}
     <h1 class="hero__heading">{{ section.settings.heading }}</h1>
+    <span class="hero__divider" aria-hidden="true"></span>
     {%- if section.settings.subheading != blank -%}
       <p class="hero__subheading">{{ section.settings.subheading }}</p>
     {%- endif -%}

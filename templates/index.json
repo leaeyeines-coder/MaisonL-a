@@ -4,6 +4,17 @@
       "type": "hero",
       "settings": {}
     },
+    "features": {
+      "type": "features",
+      "blocks": {
+        "feature-1": { "type": "feature", "settings": { "icon": "vase", "heading": "Sélectionné avec soin", "text": "Des pièces élégantes et intemporelles." } },
+        "feature-2": { "type": "feature", "settings": { "icon": "heart", "heading": "Pour votre plus beau jour", "text": "Mariages, fiançailles et réceptions." } },
+        "feature-3": { "type": "feature", "settings": { "icon": "truck", "heading": "Livraison ou retrait", "text": "Partout où votre mariage vous mène." } },
+        "feature-4": { "type": "feature", "settings": { "icon": "sparkle", "heading": "Service sur mesure", "text": "Un accompagnement personnalisé de A à Z." } }
+      },
+      "block_order": ["feature-1", "feature-2", "feature-3", "feature-4"],
+      "settings": {}
+    },
     "story": {
       "type": "story",
       "blocks": {
@@ -85,5 +96,5 @@
       "settings": {}
     }
   },
-  "order": ["hero", "story", "location", "formules", "a-la-carte", "devis"]
+  "order": ["hero", "features", "story", "location", "formules", "a-la-carte", "devis"]
 }

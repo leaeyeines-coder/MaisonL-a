@@ -1,45 +1,45 @@
 <section class="a-la-carte" id="a-la-carte">
   <div class="container">
-    <div class="section-heading" data-reveal>
-      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
-      <h2>{{ section.settings.heading }}</h2>
-      <p class="section-heading__text">{{ section.settings.text }}</p>
+    <div class="a-la-carte__head" data-reveal>
+      <div class="section-heading">
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2>{{ section.settings.heading }}</h2>
+        <p class="section-heading__text">{{ section.settings.text }}</p>
+      </div>
+      <a href="{{ section.settings.all_link | default: '#' }}" class="button button--outline">
+        Voir toute la collection
+      </a>
     </div>
-  </div>
 
-  <div class="a-la-carte__strip-wrap">
-    <ul class="a-la-carte__strip" data-reveal>
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'categorie' -%}
-          {%- assign cat_collection = collections[block.settings.collection] -%}
-          <li class="category-tile" {{ block.shopify_attributes }}>
-            <a href="{{ cat_collection.url | default: '#' }}">
-              <div class="category-tile__media">
-                {%- if block.settings.image -%}
-                  <img src="{{ block.settings.image | image_url: width: 500 }}" alt="{{ block.settings.label }}" width="500" height="500" loading="lazy">
-                {%- elsif cat_collection.featured_image -%}
-                  <img src="{{ cat_collection.featured_image | image_url: width: 500 }}" alt="{{ block.settings.label }}" width="500" height="500" loading="lazy">
-                {%- else -%}
-                  <div class="category-tile__placeholder">{% render 'icon', name: 'leaf', size: 28 %}</div>
-                {%- endif -%}
-              </div>
-              <div class="category-tile__label">
-                <span>{{ block.settings.label }}</span>
-                {%- if cat_collection != blank -%}
-                  <small>{{ cat_collection.products_count }} pièces</small>
-                {%- endif -%}
-              </div>
-            </a>
-          </li>
-        {%- endif -%}
-      {%- endfor -%}
-    </ul>
-  </div>
-
-  <div class="container a-la-carte__cta" data-reveal>
-    <a href="{{ section.settings.all_link | default: '#' }}" class="button button--outline">
-      Voir toute la collection {% render 'icon', name: 'arrow-right', size: 16 %}
-    </a>
+    <div class="a-la-carte__strip-wrap">
+      <ul class="a-la-carte__strip" data-reveal>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'categorie' -%}
+            {%- assign cat_collection = collections[block.settings.collection] -%}
+            <li class="category-tile" {{ block.shopify_attributes }}>
+              <a href="{{ cat_collection.url | default: '#' }}">
+                <div class="category-tile__media">
+                  {%- if block.settings.image -%}
+                    <img src="{{ block.settings.image | image_url: width: 500 }}" alt="{{ block.settings.label }}" width="500" height="500" loading="lazy">
+                  {%- elsif cat_collection.featured_image -%}
+                    <img src="{{ cat_collection.featured_image | image_url: width: 500 }}" alt="{{ block.settings.label }}" width="500" height="500" loading="lazy">
+                  {%- else -%}
+                    <div class="category-tile__placeholder">{% render 'icon', name: 'leaf', size: 28 %}</div>
+                  {%- endif -%}
+                </div>
+                <div class="category-tile__label">
+                  <span>{{ block.settings.label }}</span>
+                  {%- if cat_collection != blank -%}
+                    <small>{{ cat_collection.products_count }} pièces</small>
+                  {%- endif -%}
+                </div>
+                <span class="category-tile__discover">Découvrir {% render 'icon', name: 'arrow-right', size: 13 %}</span>
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
   </div>
 </section>
 

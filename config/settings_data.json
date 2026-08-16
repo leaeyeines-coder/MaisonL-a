@@ -1,18 +1,21 @@
 {
   "current": {
-    "color_background": "#FBF6EF",
-    "color_background_alt": "#F1E1CF",
-    "color_cream": "#FFFDF9",
-    "color_mocha": "#A6785F",
-    "color_mocha_dark": "#7C5842",
-    "color_chocolate": "#3A2A1F",
-    "color_gold": "#C6A15C",
+    "color_background": "#F8F2E8",
+    "color_background_alt": "#F0E3CF",
+    "color_cream": "#FFFFFF",
+    "color_mocha": "#8B6F52",
+    "color_mocha_dark": "#6E5540",
+    "color_chocolate": "#3E2C20",
+    "color_gold": "#B08D5B",
     "color_sage": "#7C8968",
-    "color_ink": "#2B2019",
-    "color_ink_light": "#6B5B4E",
+    "color_ink": "#3A2E24",
+    "color_ink_light": "#7A6A5C",
     "type_header_font": "cormorant_n4",
     "type_body_font": "jost_n4",
     "logo_width": 150,
+    "logo_line1": "Maison",
+    "logo_line2": "L.",
+    "logo_tagline": "Art de la table & réception",
     "shop_phone": "+33 6 00 00 00 00",
     "shop_email": "contact@maison-l.fr",
     "social_instagram": "",
@@ -21,17 +24,17 @@
     "cart_type": "drawer"
   },
   "presets": {
-    "Mocha Mousse": {
-      "color_background": "#FBF6EF",
-      "color_background_alt": "#F1E1CF",
-      "color_cream": "#FFFDF9",
-      "color_mocha": "#A6785F",
-      "color_mocha_dark": "#7C5842",
-      "color_chocolate": "#3A2A1F",
-      "color_gold": "#C6A15C",
+    "Ivoire & Mocha": {
+      "color_background": "#F8F2E8",
+      "color_background_alt": "#F0E3CF",
+      "color_cream": "#FFFFFF",
+      "color_mocha": "#8B6F52",
+      "color_mocha_dark": "#6E5540",
+      "color_chocolate": "#3E2C20",
+      "color_gold": "#B08D5B",
       "color_sage": "#7C8968",
-      "color_ink": "#2B2019",
-      "color_ink_light": "#6B5B4E"
+      "color_ink": "#3A2E24",
+      "color_ink_light": "#7A6A5C"
     }
   }
 }

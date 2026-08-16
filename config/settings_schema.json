@@ -12,67 +12,67 @@
     "settings": [
       {
         "type": "header",
-        "content": "Palette Mocha Mousse"
+        "content": "Palette ivoire & mocha"
       },
       {
         "type": "color",
         "id": "color_background",
-        "label": "Fond principal (ivoire lin)",
-        "default": "#FBF6EF"
+        "label": "Fond principal (ivoire)",
+        "default": "#F8F2E8"
       },
       {
         "type": "color",
         "id": "color_background_alt",
-        "label": "Fond alterné (beige mocha clair)",
-        "default": "#F1E1CF"
+        "label": "Fond alterné (beige doux)",
+        "default": "#F0E3CF"
       },
       {
         "type": "color",
         "id": "color_cream",
         "label": "Blanc porcelaine (cartes)",
-        "default": "#FFFDF9"
+        "default": "#FFFFFF"
       },
       {
         "type": "color",
         "id": "color_mocha",
-        "label": "Mocha (couleur signature)",
-        "default": "#A6785F"
+        "label": "Mocha (boutons, couleur signature)",
+        "default": "#8B6F52"
       },
       {
         "type": "color",
         "id": "color_mocha_dark",
         "label": "Mocha foncé (hover, accents)",
-        "default": "#7C5842"
+        "default": "#6E5540"
       },
       {
         "type": "color",
         "id": "color_chocolate",
-        "label": "Chocolat profond (header, footer, fonds sombres)",
-        "default": "#3A2A1F"
+        "label": "Chocolat profond (titres, logo, bandeau bas de page)",
+        "default": "#3E2C20"
       },
       {
         "type": "color",
         "id": "color_gold",
-        "label": "Or (accents, bordures, liserés)",
-        "default": "#C6A15C"
+        "label": "Or (liserés, petits accents)",
+        "default": "#B08D5B"
       },
       {
         "type": "color",
         "id": "color_sage",
-        "label": "Vert sauge (accent végétal, badge Premium)",
+        "label": "Vert sauge (accent végétal, badge Éco)",
         "default": "#7C8968"
       },
       {
         "type": "color",
         "id": "color_ink",
         "label": "Texte principal",
-        "default": "#2B2019"
+        "default": "#3A2E24"
       },
       {
         "type": "color",
         "id": "color_ink_light",
         "label": "Texte secondaire",
-        "default": "#6B5B4E"
+        "default": "#7A6A5C"
       }
     ]
   },
@@ -115,6 +115,24 @@
         "type": "image_picker",
         "id": "favicon",
         "label": "Favicon"
+      },
+      {
+        "type": "text",
+        "id": "logo_line1",
+        "label": "Logo texte — petite ligne",
+        "default": "Maison"
+      },
+      {
+        "type": "text",
+        "id": "logo_line2",
+        "label": "Logo texte — grande ligne",
+        "default": "L."
+      },
+      {
+        "type": "text",
+        "id": "logo_tagline",
+        "label": "Signature sous le logo",
+        "default": "Art de la table & réception"
       }
     ]
   },

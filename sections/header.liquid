@@ -9,13 +9,17 @@
       {%- if settings.logo -%}
         <img
           src="{{ settings.logo | image_url: width: 300 }}"
-          alt="{{ shop.name }}"
+          alt="{{ settings.logo_line1 }} {{ settings.logo_line2 }}"
           width="{{ settings.logo_width }}"
           height="{{ settings.logo_width | divided_by: settings.logo.aspect_ratio | default: settings.logo_width }}"
           loading="eager"
         >
       {%- else -%}
-        <span class="site-header__wordmark">{{ shop.name }}</span>
+        <span class="site-header__wordmark">
+          <em>{{ settings.logo_line1 }}</em>
+          <strong>{{ settings.logo_line2 }}</strong>
+          {%- if settings.logo_tagline != blank -%}<small>{{ settings.logo_tagline }}</small>{%- endif -%}
+        </span>
       {%- endif -%}
     </a>
 
@@ -45,9 +49,11 @@
     </nav>
 
     <div class="site-header__actions">
-      <a href="{{ routes.root_url }}#devis" class="site-header__cta">Demander un devis</a>
-      <a href="{{ routes.cart_url }}" class="site-header__cart" data-cart-icon aria-label="Voir la réservation">
-        {% render 'icon', name: 'cart' %}
+      <a href="{{ routes.account_url }}" class="site-header__icon-link" aria-label="Mon compte">
+        {% render 'icon', name: 'user', size: 19 %}
+      </a>
+      <a href="{{ routes.cart_url }}" class="site-header__icon-link site-header__cart" data-cart-icon aria-label="Voir la réservation">
+        {% render 'icon', name: 'bag', size: 19 %}
         <span class="site-header__cart-count" data-cart-count>{{ cart.item_count }}</span>
       </a>
     </div>

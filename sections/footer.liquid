@@ -4,7 +4,7 @@
       {%- if settings.logo -%}
         <img src="{{ settings.logo | image_url: width: 240 }}" alt="{{ shop.name }}" width="140" loading="lazy" class="site-footer__logo">
       {%- else -%}
-        <span class="site-footer__wordmark">{{ shop.name }}</span>
+        <span class="site-footer__wordmark">{{ settings.logo_line1 }} {{ settings.logo_line2 }}</span>
       {%- endif -%}
       <p>{{ section.settings.tagline }}</p>
       <div class="site-footer__socials">
@@ -62,9 +62,11 @@
     </div>
   </div>
 
-  <div class="site-footer__bottom container">
-    <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. Tous droits réservés.</p>
-    <p class="site-footer__credit">Location de vaisselle et art de la table pour mariages &amp; réceptions</p>
+  <div class="site-footer__bottom">
+    <div class="container">
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. Tous droits réservés.</p>
+      <p class="site-footer__credit">Location de vaisselle et art de la table pour mariages &amp; réceptions</p>
+    </div>
   </div>
 </footer>
 
