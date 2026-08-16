@@ -89,6 +89,17 @@
         "all_link": "/collections/all"
       }
     },
+    "inspirations": {
+      "type": "inspirations",
+      "blocks": {
+        "theme-1": { "type": "theme", "settings": { "name": "Dolce Vita", "text": "Citronniers, terracotta et douceur italienne pour une table estivale et ensoleillée." } },
+        "theme-2": { "type": "theme", "settings": { "name": "Coloré", "text": "Des teintes vives et joyeuses pour une réception pleine de peps et de bonne humeur." } },
+        "theme-3": { "type": "theme", "settings": { "name": "Champêtre", "text": "Bois brut, lin naturel et fleurs des champs pour une table simple et chaleureuse." } },
+        "theme-4": { "type": "theme", "settings": { "name": "Chic", "text": "Noir, blanc et touches dorées pour une réception sobre et élégante." } }
+      },
+      "block_order": ["theme-1", "theme-2", "theme-3", "theme-4"],
+      "settings": {}
+    },
     "devis": {
       "type": "devis-form",
       "blocks": {
@@ -100,5 +111,5 @@
       "settings": {}
     }
   },
-  "order": ["hero", "features", "story", "location", "formules", "a-la-carte", "devis"]
+  "order": ["hero", "features", "story", "location", "formules", "a-la-carte", "inspirations", "devis"]
 }

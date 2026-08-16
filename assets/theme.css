@@ -352,6 +352,48 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 /* ==========================================================================
+   Inspirations (slider de thèmes)
+   ========================================================================== */
+.inspirations { padding-block: 90px; background: var(--color-chocolate); color: #fff; overflow: hidden; }
+.inspirations .eyebrow { color: var(--color-gold); }
+.inspirations .eyebrow::before { background: var(--color-gold); }
+.inspirations h2 { color: #fff; }
+.inspirations .section-heading__text { color: rgba(255,253,249,0.72); }
+
+.inspirations__slider-wrap { position: relative; margin-top: 44px; }
+.inspirations__slider {
+  display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 4px 24px 12px; scroll-padding-left: 24px;
+}
+.inspiration-card {
+  scroll-snap-align: start; flex: 0 0 260px; background: rgba(255,253,249,0.06);
+  border: 1px solid rgba(255,253,249,0.14); border-radius: 18px; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.inspiration-card__media { aspect-ratio: 4/5; background: rgba(255,253,249,0.08); }
+.inspiration-card__media img { width: 100%; height: 100%; object-fit: cover; }
+.inspiration-card__placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--color-gold); }
+.inspiration-card__body { padding: 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.inspiration-card__body h3 { color: #fff; font-size: 1.2rem; margin: 0; }
+.inspiration-card__body p { color: rgba(255,253,249,0.72); font-size: 0.88rem; flex: 1; }
+.inspiration-card__body .button { align-self: flex-start; margin-top: 4px; }
+
+.inspirations__nav {
+  display: none; position: absolute; top: 50%; transform: translateY(-50%);
+  width: 42px; height: 42px; border-radius: 999px; border: 1px solid rgba(255,253,249,0.3);
+  background: rgba(43,32,25,0.6); color: #fff; align-items: center; justify-content: center; z-index: 2;
+}
+.inspirations__nav:hover { background: var(--color-mocha); border-color: var(--color-mocha); }
+.inspirations__nav--prev { left: 8px; }
+.inspirations__nav--prev svg { transform: rotate(180deg); }
+.inspirations__nav--next { right: 8px; }
+
+@media (min-width: 700px) {
+  .inspirations__slider { padding-inline: 44px; }
+  .inspirations__nav { display: inline-flex; }
+}
+
+/* ==========================================================================
    Devis form
    ========================================================================== */
 .devis { padding-block: 100px; }
@@ -363,6 +405,10 @@ ul { list-style: none; margin: 0; padding: 0; }
 .devis__contact-alt a { display: inline-flex; align-items: center; gap: 8px; color: var(--color-mocha-dark); }
 
 .devis__form-wrap { background: var(--color-cream); border-radius: 20px; padding: clamp(24px, 4vw, 44px); border: 1px solid rgba(58,42,31,0.08); }
+.devis-form__style-note {
+  display: flex; align-items: center; gap: 8px; background: var(--color-bg-alt); color: var(--color-mocha-dark);
+  border-radius: 999px; padding: 8px 16px; font-size: 0.84rem; margin-bottom: 18px; width: fit-content;
+}
 .form-row { margin-bottom: 18px; }
 .form-row--split { display: grid; grid-template-columns: 1fr; gap: 18px; }
 .form-field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }

@@ -367,3 +367,44 @@ document.addEventListener('click', function (e) {
     });
   }
 })();
+
+/* ==========================================================================
+   Inspirations slider
+   ========================================================================== */
+(function inspirationsSlider() {
+  var slider = document.querySelector('[data-slider]');
+  if (!slider) return;
+
+  var prevBtn = document.querySelector('[data-slider-prev]');
+  var nextBtn = document.querySelector('[data-slider-next]');
+  var scrollByCard = function (direction) {
+    var card = slider.querySelector('.inspiration-card');
+    var amount = card ? card.getBoundingClientRect().width + 20 : 280;
+    slider.scrollBy({ left: amount * direction, behavior: 'smooth' });
+  };
+  if (prevBtn) prevBtn.addEventListener('click', function () { scrollByCard(-1); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { scrollByCard(1); });
+})();
+
+/* ==========================================================================
+   Préremplissage du devis depuis un thème d'inspiration
+   ========================================================================== */
+(function prefillDevisStyle() {
+  var params = new URLSearchParams(window.location.search);
+  var style = params.get('style');
+  if (!style) return;
+
+  var styleField = document.getElementById('DevisStyleField');
+  var styleNote = document.getElementById('DevisStyleNote');
+  var messageField = document.getElementById('DevisMessage');
+
+  if (styleField) styleField.value = style;
+  if (styleNote) {
+    styleNote.hidden = false;
+    var valueEl = styleNote.querySelector('[data-style-note-value]');
+    if (valueEl) valueEl.textContent = style;
+  }
+  if (messageField && !messageField.value) {
+    messageField.value = 'Je suis intéressé·e par le thème "' + style + '". ';
+  }
+})();

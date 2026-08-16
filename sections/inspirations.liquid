@@ -1,0 +1,75 @@
+<section class="inspirations" id="inspirations">
+  <div class="container">
+    <div class="section-heading" data-reveal>
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+      <p class="section-heading__text">{{ section.settings.text }}</p>
+    </div>
+  </div>
+
+  <div class="inspirations__slider-wrap">
+    <button type="button" class="inspirations__nav inspirations__nav--prev" data-slider-prev aria-label="Thème précédent">
+      {% render 'icon', name: 'arrow-right', size: 18 %}
+    </button>
+
+    <ul class="inspirations__slider" data-slider data-reveal>
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'theme' -%}
+          <li class="inspiration-card" {{ block.shopify_attributes }}>
+            <div class="inspiration-card__media">
+              {%- if block.settings.image -%}
+                <img src="{{ block.settings.image | image_url: width: 700 }}" alt="{{ block.settings.name | escape }}" width="700" height="{{ 700 | divided_by: block.settings.image.aspect_ratio | default: 500 }}" loading="lazy">
+              {%- else -%}
+                <div class="inspiration-card__placeholder">{% render 'icon', name: 'sparkle', size: 30 %}</div>
+              {%- endif -%}
+            </div>
+            <div class="inspiration-card__body">
+              <h3>{{ block.settings.name }}</h3>
+              <p>{{ block.settings.text }}</p>
+              <a href="{{ routes.root_url }}?style={{ block.settings.name | url_encode }}#devis" class="button button--outline-light button--small" data-style-link data-style-name="{{ block.settings.name | escape }}">
+                Demander un devis {% render 'icon', name: 'arrow-right', size: 14 %}
+              </a>
+            </div>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+
+    <button type="button" class="inspirations__nav inspirations__nav--next" data-slider-next aria-label="Thème suivant">
+      {% render 'icon', name: 'arrow-right', size: 18 %}
+    </button>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Inspirations",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Inspirations" },
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Trouvez le thème de votre table" },
+    { "type": "textarea", "id": "text", "label": "Texte", "default": "Une ambiance vous parle plus qu'une autre ? Dites-le-nous et nous vous préparons un devis assorti à votre univers." }
+  ],
+  "blocks": [
+    {
+      "type": "theme",
+      "name": "Thème",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "name", "label": "Nom du thème", "default": "Dolce Vita" },
+        { "type": "textarea", "id": "text", "label": "Texte", "default": "Citronniers, terracotta et douceur italienne pour une table estivale et ensoleillée." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Inspirations",
+      "blocks": [
+        { "type": "theme", "settings": { "name": "Dolce Vita", "text": "Citronniers, terracotta et douceur italienne pour une table estivale et ensoleillée." } },
+        { "type": "theme", "settings": { "name": "Coloré", "text": "Des teintes vives et joyeuses pour une réception pleine de peps et de bonne humeur." } },
+        { "type": "theme", "settings": { "name": "Champêtre", "text": "Bois brut, lin naturel et fleurs des champs pour une table simple et chaleureuse." } },
+        { "type": "theme", "settings": { "name": "Chic", "text": "Noir, blanc et touches dorées pour une réception sobre et élégante." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

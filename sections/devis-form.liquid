@@ -41,6 +41,12 @@
         {%- endif -%}
 
         <input type="hidden" name="contact[Origine]" value="Formulaire de devis mariage">
+        <input type="hidden" name="contact[Thème d'inspiration]" id="DevisStyleField" value="">
+
+        <p class="devis-form__style-note" id="DevisStyleNote" hidden>
+          {% render 'icon', name: 'sparkle', size: 14 %}
+          Thème présélectionné : <strong data-style-note-value></strong>
+        </p>
 
         <div class="form-row form-row--split">
           <div class="form-field">
