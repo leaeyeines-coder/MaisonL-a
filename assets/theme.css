@@ -542,7 +542,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 .product__gallery-hint { display: flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 0.8rem; color: var(--color-mocha); }
 .product__gallery-hint svg { flex-shrink: 0; }
 
-.product__title { margin-top: 0.4em; }
+.product__info .tier-badge { position: static; display: inline-flex; margin-bottom: 14px; }
+.product__title { margin-top: 0; }
 .product__price { font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-mocha-dark); display: flex; align-items: baseline; gap: 10px; }
 .product__price-compare { text-decoration: line-through; color: var(--color-ink-light); font-size: 1.1rem; font-family: var(--font-body); }
 .product__price-unit { font-family: var(--font-body); font-size: 0.78rem; color: var(--color-ink-light); }
