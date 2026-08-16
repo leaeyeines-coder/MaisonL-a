@@ -53,7 +53,8 @@
           "type": "formule",
           "settings": {
             "name": "Lucie",
-            "price": "3,20 €",
+            "price": "À partir de 0,70 €",
+            "price_unit": "/ pièce",
             "description": "Des matières nobles et des finitions dorées pour une table raffinée.",
             "included": "Fourchettes\nCouteaux\nCuillères à dessert\nCuillères à entrée\nVerres à eau\nVerres à vin\nFlûtes à champagne",
             "featured": true,
