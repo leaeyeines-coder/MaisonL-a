@@ -52,6 +52,7 @@
         "formule-premium": {
           "type": "formule",
           "settings": {
+            "image": "shopify://shop_images/formule-lucie-set-complet.jpg",
             "name": "Lucie",
             "price": "À partir de 0,70 €",
             "price_unit": "/ pièce",
