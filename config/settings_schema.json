@@ -12,19 +12,19 @@
     "settings": [
       {
         "type": "header",
-        "content": "Palette ivoire & mocha"
+        "content": "Palette ivoire & rose doré"
       },
       {
         "type": "color",
         "id": "color_background",
         "label": "Fond principal (ivoire)",
-        "default": "#F8F2E8"
+        "default": "#FBF3EF"
       },
       {
         "type": "color",
         "id": "color_background_alt",
-        "label": "Fond alterné (beige doux)",
-        "default": "#F0E3CF"
+        "label": "Fond alterné (blush doux)",
+        "default": "#F5E3DD"
       },
       {
         "type": "color",
@@ -35,44 +35,44 @@
       {
         "type": "color",
         "id": "color_mocha",
-        "label": "Mocha (boutons, couleur signature)",
-        "default": "#8B6F52"
+        "label": "Rose doré (boutons, couleur signature)",
+        "default": "#BC8B82"
       },
       {
         "type": "color",
         "id": "color_mocha_dark",
-        "label": "Mocha foncé (hover, accents)",
-        "default": "#6E5540"
+        "label": "Rose doré foncé (hover, accents)",
+        "default": "#98645C"
       },
       {
         "type": "color",
         "id": "color_chocolate",
-        "label": "Chocolat profond (titres, logo, bandeau bas de page)",
-        "default": "#3E2C20"
+        "label": "Bordeaux profond (titres, logo, bandeau bas de page)",
+        "default": "#4A2C30"
       },
       {
         "type": "color",
         "id": "color_gold",
-        "label": "Or (liserés, petits accents)",
-        "default": "#B08D5B"
+        "label": "Or rosé (liserés, petits accents)",
+        "default": "#D4AF7A"
       },
       {
         "type": "color",
         "id": "color_sage",
         "label": "Vert sauge (accent végétal, badge Éco)",
-        "default": "#7C8968"
+        "default": "#8B9678"
       },
       {
         "type": "color",
         "id": "color_ink",
         "label": "Texte principal",
-        "default": "#3A2E24"
+        "default": "#4A363A"
       },
       {
         "type": "color",
         "id": "color_ink_light",
         "label": "Texte secondaire",
-        "default": "#7A6A5C"
+        "default": "#8C767A"
       }
     ]
   },

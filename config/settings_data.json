@@ -1,15 +1,15 @@
 {
   "current": {
-    "color_background": "#F8F2E8",
-    "color_background_alt": "#F0E3CF",
+    "color_background": "#FBF3EF",
+    "color_background_alt": "#F5E3DD",
     "color_cream": "#FFFFFF",
-    "color_mocha": "#8B6F52",
-    "color_mocha_dark": "#6E5540",
-    "color_chocolate": "#3E2C20",
-    "color_gold": "#B08D5B",
-    "color_sage": "#7C8968",
-    "color_ink": "#3A2E24",
-    "color_ink_light": "#7A6A5C",
+    "color_mocha": "#BC8B82",
+    "color_mocha_dark": "#98645C",
+    "color_chocolate": "#4A2C30",
+    "color_gold": "#D4AF7A",
+    "color_sage": "#8B9678",
+    "color_ink": "#4A363A",
+    "color_ink_light": "#8C767A",
     "type_header_font": "cormorant_n4",
     "type_body_font": "jost_n4",
     "logo_width": 150,
@@ -25,17 +25,17 @@
     "cart_type": "drawer"
   },
   "presets": {
-    "Ivoire & Mocha": {
-      "color_background": "#F8F2E8",
-      "color_background_alt": "#F0E3CF",
+    "Ivoire & Rose Doré": {
+      "color_background": "#FBF3EF",
+      "color_background_alt": "#F5E3DD",
       "color_cream": "#FFFFFF",
-      "color_mocha": "#8B6F52",
-      "color_mocha_dark": "#6E5540",
-      "color_chocolate": "#3E2C20",
-      "color_gold": "#B08D5B",
-      "color_sage": "#7C8968",
-      "color_ink": "#3A2E24",
-      "color_ink_light": "#7A6A5C"
+      "color_mocha": "#BC8B82",
+      "color_mocha_dark": "#98645C",
+      "color_chocolate": "#4A2C30",
+      "color_gold": "#D4AF7A",
+      "color_sage": "#8B9678",
+      "color_ink": "#4A363A",
+      "color_ink_light": "#8C767A"
     }
   }
 }
