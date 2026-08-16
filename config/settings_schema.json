@@ -1,11 +1,11 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Maison L.",
-    "theme_author": "Maison L.",
+    "theme_name": "Maison Palma",
+    "theme_author": "Maison Palma",
     "theme_version": "1.0.0",
     "theme_documentation_url": "https://github.com/leaeyeines-coder/MaisonL-a",
-    "theme_support_email": "contact@maison-l.fr"
+    "theme_support_email": "contact@maison-palma.fr"
   },
   {
     "name": "Couleurs",
@@ -126,7 +126,7 @@
         "type": "text",
         "id": "logo_line2",
         "label": "Logo texte — grande ligne",
-        "default": "L."
+        "default": "Palma"
       },
       {
         "type": "text",
@@ -149,7 +149,7 @@
         "type": "text",
         "id": "shop_email",
         "label": "Email de contact",
-        "default": "contact@maison-l.fr"
+        "default": "contact@maison-palma.fr"
       },
       {
         "type": "header",

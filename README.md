@@ -1,4 +1,4 @@
-# Maison L. — Thème Shopify (location de vaisselle de mariage)
+# Maison Palma — Thème Shopify (location de vaisselle de mariage)
 
 Thème Shopify sur mesure (Online Store 2.0), inspiré dans sa structure du site
 de La Pâtisserie Cyril Lignac (page d'accueil qui raconte l'histoire de la
