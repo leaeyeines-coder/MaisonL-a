@@ -39,6 +39,7 @@
         "formule-eco": {
           "type": "formule",
           "settings": {
+            "image": "shopify://shop_images/formule-essentiel-couverts.jpg",
             "name": "Essentiel",
             "price": "1,90 €",
             "description": "L'essentiel, dans des lignes épurées et intemporelles.",
