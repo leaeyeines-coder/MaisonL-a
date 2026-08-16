@@ -32,6 +32,7 @@
             </button>
           {%- endfor -%}
         </div>
+        <p class="product__gallery-hint">{% render 'icon', name: 'arrow-right', size: 13 %} Glissez pour voir les autres styles</p>
       {%- endif -%}
     </div>
 
@@ -129,6 +130,13 @@
 
 <script type="application/json" data-product-json>
   {{ product.variants | json }}
+</script>
+<script type="application/json" data-variant-media-map>
+  {
+    {%- for variant in product.variants -%}
+      "{{ variant.id }}": {{ variant.featured_image.id | json }}{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  }
 </script>
 
 {% schema %}

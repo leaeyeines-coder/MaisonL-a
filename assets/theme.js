@@ -256,8 +256,14 @@ document.addEventListener('click', function (e) {
 
   var variantScript = section.querySelector('[data-product-json]');
   var variants = variantScript ? JSON.parse(variantScript.textContent) : [];
+  var mediaMapScript = section.querySelector('[data-variant-media-map]');
+  var variantMediaMap = mediaMapScript ? JSON.parse(mediaMapScript.textContent) : {};
   var variantIdInput = section.querySelector('[data-product-variant-id]');
   var priceEl = section.querySelector('[data-product-price]');
+  var galleryMain = section.querySelector('[data-product-gallery-main]');
+  var thumbs = section.querySelectorAll('[data-product-gallery-thumbs] .product__gallery-thumb');
+  var slides = section.querySelectorAll('[data-product-gallery-main] .product__gallery-slide');
+  var isProgrammaticScroll = false;
 
   function selectedOptionValues() {
     var values = [];
@@ -279,6 +285,36 @@ document.addEventListener('click', function (e) {
     return (cents / 100).toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' });
   }
 
+  function applyVariant(match) {
+    if (!match) return;
+    if (variantIdInput) variantIdInput.value = match.id;
+    if (priceEl) {
+      var compareHtml = match.compare_at_price && match.compare_at_price > match.price
+        ? '<span class="product__price-compare">' + moneyFormat(match.compare_at_price) + '</span>'
+        : '';
+      priceEl.innerHTML = compareHtml + moneyFormat(match.price) + ' <span class="product__price-unit">/ location, hors caution</span>';
+    }
+    var addBtn = section.querySelector('[data-add-to-cart]');
+    var addText = section.querySelector('[data-add-to-cart-text]');
+    if (addBtn) addBtn.disabled = !match.available;
+    if (addText) addText.textContent = match.available ? 'Ajouter à ma réservation' : 'Rupture de stock';
+  }
+
+  function activateThumbAndSlide(mediaId) {
+    thumbs.forEach(function (t) { t.classList.toggle('is-active', t.dataset.mediaId === mediaId); });
+    slides.forEach(function (s) { s.classList.toggle('is-active', s.dataset.mediaId === mediaId); });
+  }
+
+  function scrollGalleryToMedia(mediaId) {
+    if (!galleryMain || !mediaId) return;
+    var target = galleryMain.querySelector('[data-media-id="' + mediaId + '"]');
+    if (!target) return;
+    isProgrammaticScroll = true;
+    galleryMain.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
+    activateThumbAndSlide(mediaId);
+    window.setTimeout(function () { isProgrammaticScroll = false; }, 500);
+  }
+
   section.querySelectorAll('.option-pills').forEach(function (group) {
     group.querySelectorAll('.option-pill').forEach(function (pill) {
       pill.addEventListener('click', function () {
@@ -287,32 +323,49 @@ document.addEventListener('click', function (e) {
 
         var match = findVariant(selectedOptionValues());
         if (!match) return;
-        if (variantIdInput) variantIdInput.value = match.id;
-        if (priceEl) {
-          var compareHtml = match.compare_at_price && match.compare_at_price > match.price
-            ? '<span class="product__price-compare">' + moneyFormat(match.compare_at_price) + '</span>'
-            : '';
-          priceEl.innerHTML = compareHtml + moneyFormat(match.price) + ' <span class="product__price-unit">/ location, hors caution</span>';
-        }
-        var addBtn = section.querySelector('[data-add-to-cart]');
-        var addText = section.querySelector('[data-add-to-cart-text]');
-        if (addBtn) addBtn.disabled = !match.available;
-        if (addText) addText.textContent = match.available ? 'Ajouter à ma réservation' : 'Rupture de stock';
+        applyVariant(match);
+        var mediaId = variantMediaMap[match.id];
+        if (mediaId) scrollGalleryToMedia(mediaId);
       });
     });
   });
 
-  var thumbs = section.querySelectorAll('[data-product-gallery-thumbs] .product__gallery-thumb');
-  var slides = section.querySelectorAll('[data-product-gallery-main] .product__gallery-slide');
   thumbs.forEach(function (thumb) {
     thumb.addEventListener('click', function () {
-      thumbs.forEach(function (t) { t.classList.remove('is-active'); });
-      slides.forEach(function (s) { s.classList.remove('is-active'); });
-      thumb.classList.add('is-active');
-      var match = section.querySelector('[data-product-gallery-main] [data-media-id="' + thumb.dataset.mediaId + '"]');
-      if (match) match.classList.add('is-active');
+      scrollGalleryToMedia(thumb.dataset.mediaId);
     });
   });
+
+  if (galleryMain && slides.length > 1) {
+    var scrollTimeout;
+    galleryMain.addEventListener('scroll', function () {
+      if (isProgrammaticScroll) return;
+      window.clearTimeout(scrollTimeout);
+      scrollTimeout = window.setTimeout(function () {
+        var mid = galleryMain.scrollLeft + galleryMain.clientWidth / 2;
+        var current = null;
+        slides.forEach(function (slide) {
+          if (slide.offsetLeft <= mid) current = slide;
+        });
+        if (!current) return;
+        var mediaId = current.dataset.mediaId;
+        activateThumbAndSlide(mediaId);
+
+        var matchingVariant = variants.find(function (variant) {
+          return variantMediaMap[variant.id] === mediaId;
+        });
+        if (matchingVariant) {
+          section.querySelectorAll('.option-pills').forEach(function (group, i) {
+            group.querySelectorAll('.option-pill').forEach(function (p) {
+              var options = [matchingVariant.option1, matchingVariant.option2, matchingVariant.option3];
+              p.classList.toggle('is-active', p.dataset.optionValue === options[i]);
+            });
+          });
+          applyVariant(matchingVariant);
+        }
+      }, 120);
+    }, { passive: true });
+  }
 })();
 
 /* ==========================================================================
