@@ -20,7 +20,7 @@
     "story": {
       "type": "story",
       "blocks": {
-        "stat-1": { "type": "stat", "settings": { "number": "500+", "label": "mariages accompagnés" } },
+        "stat-1": { "type": "stat", "settings": { "number": "80+", "label": "mariages accompagnés" } },
         "stat-2": { "type": "stat", "settings": { "number": "3", "label": "formules sur mesure" } },
         "stat-3": { "type": "stat", "settings": { "number": "2 ans", "label": "d'expérience" } }
       },
