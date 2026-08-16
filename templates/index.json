@@ -2,7 +2,9 @@
   "sections": {
     "hero": {
       "type": "hero",
-      "settings": {}
+      "settings": {
+        "image": "shopify://shop_images/hero-table-mariage.jpg"
+      }
     },
     "features": {
       "type": "features",
@@ -23,7 +25,9 @@
         "stat-3": { "type": "stat", "settings": { "number": "10 ans", "label": "d'expérience" } }
       },
       "block_order": ["stat-1", "stat-2", "stat-3"],
-      "settings": {}
+      "settings": {
+        "image": "shopify://shop_images/histoire-table-mariage.jpg"
+      }
     },
     "location": {
       "type": "location",
