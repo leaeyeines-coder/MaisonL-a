@@ -81,12 +81,16 @@
       "blocks": {
         "cat-fourchettes": { "type": "categorie", "settings": { "label": "Fourchettes", "collection": "fourchettes" } },
         "cat-couteaux": { "type": "categorie", "settings": { "label": "Couteaux", "collection": "couteaux" } },
-        "cat-cuilleres": { "type": "categorie", "settings": { "label": "Cuillères", "collection": "cuilleres" } },
-        "cat-verres": { "type": "categorie", "settings": { "label": "Verres", "collection": "verres" } },
+        "cat-cuilleres-dessert": { "type": "categorie", "settings": { "label": "Cuillères à dessert", "collection": "cuillere-a-dessert" } },
+        "cat-cuilleres-entree": { "type": "categorie", "settings": { "label": "Cuillères à entrée", "collection": "cuillere-a-entree" } },
+        "cat-verre-eau": { "type": "categorie", "settings": { "label": "Verre à eau", "collection": "verre-a-eau" } },
+        "cat-verre-vin": { "type": "categorie", "settings": { "label": "Verre à vin", "collection": "verre-a-vin" } },
+        "cat-verre-champagne": { "type": "categorie", "settings": { "label": "Verre à champagne", "collection": "verre-a-champagne" } },
+        "cat-flute-champagne": { "type": "categorie", "settings": { "label": "Flûte à champagne", "collection": "flute-a-champagne" } },
         "cat-assiettes": { "type": "categorie", "settings": { "label": "Assiettes", "collection": "assiettes" } },
         "cat-decoration": { "type": "categorie", "settings": { "label": "Décoration", "collection": "decoration" } }
       },
-      "block_order": ["cat-fourchettes", "cat-couteaux", "cat-cuilleres", "cat-verres", "cat-assiettes", "cat-decoration"],
+      "block_order": ["cat-fourchettes", "cat-couteaux", "cat-cuilleres-dessert", "cat-cuilleres-entree", "cat-verre-eau", "cat-verre-vin", "cat-verre-champagne", "cat-flute-champagne", "cat-assiettes", "cat-decoration"],
       "settings": {
         "all_link": "/collections/all"
       }
