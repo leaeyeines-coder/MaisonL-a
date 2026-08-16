@@ -83,7 +83,7 @@
         "type": "font_picker",
         "id": "type_header_font",
         "label": "Police des titres",
-        "default": "playfair_display_n4"
+        "default": "italiana_n4"
       },
       {
         "type": "font_picker",
