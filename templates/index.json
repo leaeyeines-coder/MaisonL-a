@@ -81,11 +81,12 @@
       "blocks": {
         "cat-fourchettes": { "type": "categorie", "settings": { "label": "Fourchettes", "collection": "fourchettes" } },
         "cat-couteaux": { "type": "categorie", "settings": { "label": "Couteaux", "collection": "couteaux" } },
+        "cat-cuilleres": { "type": "categorie", "settings": { "label": "Cuillères", "collection": "cuilleres" } },
         "cat-verres": { "type": "categorie", "settings": { "label": "Verres", "collection": "verres" } },
         "cat-assiettes": { "type": "categorie", "settings": { "label": "Assiettes", "collection": "assiettes" } },
         "cat-decoration": { "type": "categorie", "settings": { "label": "Décoration", "collection": "decoration" } }
       },
-      "block_order": ["cat-fourchettes", "cat-couteaux", "cat-verres", "cat-assiettes", "cat-decoration"],
+      "block_order": ["cat-fourchettes", "cat-couteaux", "cat-cuilleres", "cat-verres", "cat-assiettes", "cat-decoration"],
       "settings": {
         "all_link": "/collections/all"
       }
