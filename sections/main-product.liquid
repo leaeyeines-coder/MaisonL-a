@@ -45,9 +45,19 @@
         elsif product.tags contains 'eco'
           assign tier = 'eco'
         endif
+
+        assign tier_label = ''
+        case tier
+          when 'eco'
+            assign tier_label = 'Essentiel'
+          when 'premium'
+            assign tier_label = 'Élégance'
+          when 'luxe'
+            assign tier_label = 'Prestige'
+        endcase
       -%}
       {%- if tier != '' -%}
-        <span class="tier-badge tier-badge--{{ tier }}">Formule {{ tier | capitalize }}</span>
+        <span class="tier-badge tier-badge--{{ tier }}">Formule {{ tier_label }}</span>
       {%- endif -%}
 
       <h1 class="product__title">{{ product.title }}</h1>

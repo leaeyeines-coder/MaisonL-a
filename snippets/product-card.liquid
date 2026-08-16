@@ -11,6 +11,16 @@
     assign tier = 'eco'
   endif
 
+  assign tier_label = ''
+  case tier
+    when 'eco'
+      assign tier_label = 'Essentiel'
+    when 'premium'
+      assign tier_label = 'Élégance'
+    when 'luxe'
+      assign tier_label = 'Prestige'
+  endcase
+
   assign category = ''
   for tag in product.tags
     if tag contains 'categorie:'
@@ -44,7 +54,7 @@
       <div class="product-card__placeholder">{% render 'icon', name: 'leaf', size: 28 %}</div>
     {%- endif -%}
     {%- if tier != 'standard' -%}
-      <span class="tier-badge tier-badge--{{ tier }}">{{ tier | capitalize }}</span>
+      <span class="tier-badge tier-badge--{{ tier }}">{{ tier_label }}</span>
     {%- endif -%}
   </a>
   <div class="product-card__body">
