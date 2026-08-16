@@ -7,15 +7,31 @@
         <span class="site-footer__wordmark">{{ settings.logo_line1 }} {{ settings.logo_line2 }}</span>
       {%- endif -%}
       <p>{{ section.settings.tagline }}</p>
+      {%- liquid
+        assign whatsapp_raw = settings.social_whatsapp
+        if whatsapp_raw == blank
+          assign whatsapp_raw = settings.shop_phone
+        endif
+        assign whatsapp_link = ''
+        if whatsapp_raw contains 'http'
+          assign whatsapp_link = whatsapp_raw
+        elsif whatsapp_raw != blank
+          assign whatsapp_digits = whatsapp_raw | remove: ' ' | remove: '+' | remove: '-'
+          assign whatsapp_link = 'https://wa.me/' | append: whatsapp_digits
+        endif
+      -%}
       <div class="site-footer__socials">
         {%- if settings.social_instagram != blank -%}
           <a href="{{ settings.social_instagram }}" aria-label="Instagram" target="_blank" rel="noopener">{% render 'icon', name: 'instagram' %}</a>
         {%- endif -%}
-        {%- if settings.social_pinterest != blank -%}
-          <a href="{{ settings.social_pinterest }}" aria-label="Pinterest" target="_blank" rel="noopener">{% render 'icon', name: 'pinterest' %}</a>
-        {%- endif -%}
         {%- if settings.social_facebook != blank -%}
           <a href="{{ settings.social_facebook }}" aria-label="Facebook" target="_blank" rel="noopener">{% render 'icon', name: 'facebook' %}</a>
+        {%- endif -%}
+        {%- if whatsapp_link != blank -%}
+          <a href="{{ whatsapp_link }}" aria-label="WhatsApp" target="_blank" rel="noopener">{% render 'icon', name: 'whatsapp' %}</a>
+        {%- endif -%}
+        {%- if settings.social_pinterest != blank -%}
+          <a href="{{ settings.social_pinterest }}" aria-label="Pinterest" target="_blank" rel="noopener">{% render 'icon', name: 'pinterest' %}</a>
         {%- endif -%}
       </div>
     </div>
