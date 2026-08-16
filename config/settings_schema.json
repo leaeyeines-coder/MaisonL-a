@@ -5,7 +5,7 @@
     "theme_author": "Maison Palma",
     "theme_version": "1.0.0",
     "theme_documentation_url": "https://github.com/leaeyeines-coder/MaisonL-a",
-    "theme_support_email": "contact@maison-palma.fr"
+    "theme_support_email": "maisonpalmalocation@gmail.com"
   },
   {
     "name": "Couleurs",
@@ -149,7 +149,7 @@
         "type": "text",
         "id": "shop_email",
         "label": "Email de contact",
-        "default": "contact@maison-palma.fr"
+        "default": "maisonpalmalocation@gmail.com"
       },
       {
         "type": "header",
