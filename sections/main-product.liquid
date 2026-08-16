@@ -1,0 +1,149 @@
+{%- liquid
+  assign product = product
+  assign current_variant = product.selected_or_first_available_variant
+-%}
+<section class="product" data-product-section data-product-id="{{ product.id }}">
+  <div class="container product__grid">
+    <div class="product__gallery">
+      <div class="product__gallery-main" data-product-gallery-main>
+        {%- if product.media.size > 0 -%}
+          {%- for media in product.media -%}
+            <div class="product__gallery-slide{% if forloop.first %} is-active{% endif %}" data-media-id="{{ media.id }}">
+              <img
+                src="{{ media | image_url: width: 1200 }}"
+                srcset="{{ media | image_url: width: 700 }} 700w, {{ media | image_url: width: 1200 }} 1200w"
+                sizes="(max-width: 989px) 100vw, 50vw"
+                alt="{{ media.alt | escape }}"
+                width="{{ media.width }}"
+                height="{{ media.height }}"
+                loading="eager"
+              >
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          <div class="product__gallery-slide is-active product__gallery-placeholder">{% render 'icon', name: 'leaf', size: 40 %}</div>
+        {%- endif -%}
+      </div>
+      {%- if product.media.size > 1 -%}
+        <div class="product__gallery-thumbs" data-product-gallery-thumbs>
+          {%- for media in product.media -%}
+            <button type="button" class="product__gallery-thumb{% if forloop.first %} is-active{% endif %}" data-media-id="{{ media.id }}" aria-label="Voir l'image {{ forloop.index }}">
+              <img src="{{ media | image_url: width: 160 }}" alt="" width="80" height="80" loading="lazy">
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="product__info" data-reveal>
+      {%- liquid
+        assign tier = ''
+        if product.tags contains 'luxe'
+          assign tier = 'luxe'
+        elsif product.tags contains 'premium'
+          assign tier = 'premium'
+        elsif product.tags contains 'eco'
+          assign tier = 'eco'
+        endif
+      -%}
+      {%- if tier != '' -%}
+        <span class="tier-badge tier-badge--{{ tier }}">Formule {{ tier | capitalize }}</span>
+      {%- endif -%}
+
+      <h1 class="product__title">{{ product.title }}</h1>
+
+      <p class="product__price" data-product-price>
+        {%- if current_variant.compare_at_price > current_variant.price -%}
+          <span class="product__price-compare">{{ current_variant.compare_at_price | money }}</span>
+        {%- endif -%}
+        {{ current_variant.price | money }}
+        <span class="product__price-unit">/ location, hors caution</span>
+      </p>
+
+      {%- if product.description != blank -%}
+        <div class="product__description rte">{{ product.description }}</div>
+      {%- endif -%}
+
+      {% form 'product', product, id: 'ProductForm', class: 'product-form' %}
+        <input type="hidden" name="id" value="{{ current_variant.id }}" data-product-variant-id>
+
+        {%- for option in product.options_with_values -%}
+          <div class="form-field product-form__option">
+            <label>{{ option.name }}</label>
+            <div class="option-pills" data-option-index="{{ forloop.index0 }}">
+              {%- for value in option.values -%}
+                <button
+                  type="button"
+                  class="option-pill{% if value == option.selected_value %} is-active{% endif %}"
+                  data-option-value="{{ value | escape }}"
+                >{{ value }}</button>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endfor -%}
+
+        <div class="form-field product-form__quantity">
+          <label for="ProductQuantity">Quantité</label>
+          <quantity-input class="quantity-input">
+            <button type="button" data-qty-decrease aria-label="Diminuer la quantité">{% render 'icon', name: 'minus', size: 14 %}</button>
+            <input type="number" id="ProductQuantity" name="quantity" value="1" min="1" data-qty-input>
+            <button type="button" data-qty-increase aria-label="Augmenter la quantité">{% render 'icon', name: 'plus', size: 14 %}</button>
+          </quantity-input>
+        </div>
+
+        <button type="submit" class="button button--primary button--full" data-add-to-cart {% unless current_variant.available %}disabled{% endunless %}>
+          <span data-add-to-cart-text>
+            {%- if current_variant.available -%}
+              Ajouter à ma réservation
+            {%- else -%}
+              Rupture de stock
+            {%- endif -%}
+          </span>
+        </button>
+        <a href="{{ routes.root_url }}#devis" class="button button--ghost button--full">Demander un devis pour ce mariage</a>
+      {% endform %}
+
+      <div class="product__accordions">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'accordion' -%}
+            <details class="accordion" {{ block.shopify_attributes }}>
+              <summary>{{ block.settings.title }} {% render 'icon', name: 'plus', size: 14 %}</summary>
+              <div class="accordion__content rte">{{ block.settings.content }}</div>
+            </details>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="application/json" data-product-json>
+  {{ product.variants | json }}
+</script>
+
+{% schema %}
+{
+  "name": "Page produit",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "accordion",
+      "name": "Accordéon",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Titre" },
+        { "type": "richtext", "id": "content", "label": "Contenu" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page produit",
+      "blocks": [
+        { "type": "accordion", "settings": { "title": "Entretien & consignes", "content": "<p>Merci de rincer sommairement la vaisselle avant restitution. Le lavage complet est assuré par notre atelier.</p>" } },
+        { "type": "accordion", "settings": { "title": "Livraison & reprise", "content": "<p>Livraison et reprise disponibles en Île-de-France. Retrait possible dans notre showroom sur rendez-vous.</p>" } },
+        { "type": "accordion", "settings": { "title": "Caution", "content": "<p>Une caution est demandée à la réservation, restituée intégralement après contrôle de la vaisselle au retour.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

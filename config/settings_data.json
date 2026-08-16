@@ -1,0 +1,37 @@
+{
+  "current": {
+    "color_background": "#FBF6EF",
+    "color_background_alt": "#F1E1CF",
+    "color_cream": "#FFFDF9",
+    "color_mocha": "#A6785F",
+    "color_mocha_dark": "#7C5842",
+    "color_chocolate": "#3A2A1F",
+    "color_gold": "#C6A15C",
+    "color_sage": "#7C8968",
+    "color_ink": "#2B2019",
+    "color_ink_light": "#6B5B4E",
+    "type_header_font": "cormorant_n4",
+    "type_body_font": "jost_n4",
+    "logo_width": 150,
+    "shop_phone": "+33 6 00 00 00 00",
+    "shop_email": "contact@maison-l.fr",
+    "social_instagram": "",
+    "social_pinterest": "",
+    "social_facebook": "",
+    "cart_type": "drawer"
+  },
+  "presets": {
+    "Mocha Mousse": {
+      "color_background": "#FBF6EF",
+      "color_background_alt": "#F1E1CF",
+      "color_cream": "#FFFDF9",
+      "color_mocha": "#A6785F",
+      "color_mocha_dark": "#7C5842",
+      "color_chocolate": "#3A2A1F",
+      "color_gold": "#C6A15C",
+      "color_sage": "#7C8968",
+      "color_ink": "#2B2019",
+      "color_ink_light": "#6B5B4E"
+    }
+  }
+}

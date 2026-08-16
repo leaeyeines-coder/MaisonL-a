@@ -1,0 +1,103 @@
+<header class="site-header" data-site-header>
+  <div class="site-header__inner container">
+    <button type="button" class="site-header__menu-toggle" data-mobile-menu-toggle aria-expanded="false" aria-controls="MobileMenu">
+      {% render 'icon', name: 'menu' %}
+      <span class="visually-hidden">Menu</span>
+    </button>
+
+    <a href="{{ routes.root_url }}" class="site-header__logo">
+      {%- if settings.logo -%}
+        <img
+          src="{{ settings.logo | image_url: width: 300 }}"
+          alt="{{ shop.name }}"
+          width="{{ settings.logo_width }}"
+          height="{{ settings.logo_width | divided_by: settings.logo.aspect_ratio | default: settings.logo_width }}"
+          loading="eager"
+        >
+      {%- else -%}
+        <span class="site-header__wordmark">{{ shop.name }}</span>
+      {%- endif -%}
+    </a>
+
+    <nav class="site-header__nav" aria-label="Navigation principale">
+      <ul>
+        {%- for link in linklists[section.settings.menu].links -%}
+          <li class="site-header__nav-item{% if link.links != blank %} has-dropdown{% endif %}">
+            <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>
+              {{ link.title }}
+              {%- if link.links != blank %} {% render 'icon', name: 'chevron-down', size: 14 %}{% endif -%}
+            </a>
+            {%- if link.links != blank -%}
+              <ul class="site-header__dropdown">
+                {%- for child_link in link.links -%}
+                  <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </li>
+        {%- else -%}
+          <li><a href="{{ routes.root_url }}#histoire">Notre histoire</a></li>
+          <li><a href="{{ routes.root_url }}#formules">Nos formules</a></li>
+          <li><a href="{{ routes.root_url }}#a-la-carte">À la carte</a></li>
+          <li><a href="{{ routes.root_url }}#devis">Devis</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <a href="{{ routes.root_url }}#devis" class="site-header__cta">Demander un devis</a>
+      <a href="{{ routes.cart_url }}" class="site-header__cart" data-cart-icon aria-label="Voir la réservation">
+        {% render 'icon', name: 'cart' %}
+        <span class="site-header__cart-count" data-cart-count>{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="MobileMenu" data-mobile-menu aria-hidden="true">
+    <div class="mobile-menu__overlay" data-mobile-menu-close></div>
+    <nav class="mobile-menu__panel" aria-label="Navigation mobile">
+      <button type="button" class="icon-button mobile-menu__close" data-mobile-menu-close aria-label="Fermer le menu">
+        {% render 'icon', name: 'close' %}
+      </button>
+      <ul>
+        {%- for link in linklists[section.settings.menu].links -%}
+          <li>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+            {%- if link.links != blank -%}
+              <ul class="mobile-menu__sublist">
+                {%- for child_link in link.links -%}
+                  <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </li>
+        {%- else -%}
+          <li><a href="{{ routes.root_url }}#histoire">Notre histoire</a></li>
+          <li><a href="{{ routes.root_url }}#formules">Nos formules</a></li>
+          <li><a href="{{ routes.root_url }}#a-la-carte">À la carte</a></li>
+          <li><a href="{{ routes.root_url }}#devis">Devis</a></li>
+        {%- endfor -%}
+      </ul>
+      <a href="{{ routes.root_url }}#devis" class="button button--primary mobile-menu__cta">Demander un devis</a>
+      {%- if settings.shop_phone != blank -%}
+        <a class="mobile-menu__phone" href="tel:{{ settings.shop_phone | remove: ' ' }}">
+          {% render 'icon', name: 'phone', size: 16 %} {{ settings.shop_phone }}
+        </a>
+      {%- endif -%}
+    </nav>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "En-tête",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu principal",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

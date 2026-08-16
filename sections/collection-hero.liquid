@@ -1,0 +1,29 @@
+<section class="collection-hero">
+  <div class="collection-hero__media">
+    {%- if section.settings.image -%}
+      <img src="{{ section.settings.image | image_url: width: 1800 }}" alt="{{ collection.title | escape }}" width="1800" height="600" loading="eager">
+    {%- elsif collection.image -%}
+      <img src="{{ collection.image | image_url: width: 1800 }}" alt="{{ collection.title | escape }}" width="1800" height="600" loading="eager">
+    {%- else -%}
+      <div class="collection-hero__placeholder"></div>
+    {%- endif -%}
+    <div class="collection-hero__overlay"></div>
+  </div>
+  <div class="container collection-hero__content">
+    <a href="{{ routes.root_url }}#a-la-carte" class="collection-hero__back">{% render 'icon', name: 'arrow-right', size: 14 %} Retour à la carte</a>
+    <h1>{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}
+      <div class="collection-hero__description rte">{{ collection.description }}</div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "En-tête de collection",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image (remplace l'image de la collection)" }
+  ],
+  "presets": [{ "name": "En-tête de collection" }]
+}
+{% endschema %}

@@ -1,0 +1,30 @@
+{%- assign featured_collection = collections[section.settings.collection] -%}
+{%- if featured_collection != blank and featured_collection.products.size > 0 -%}
+  <section class="featured-collection">
+    <div class="container">
+      <div class="section-heading section-heading--compact" data-reveal>
+        <h2>{{ section.settings.heading }}</h2>
+        <a href="{{ featured_collection.url }}" class="section-heading__link">Voir tout {% render 'icon', name: 'arrow-right', size: 14 %}</a>
+      </div>
+      <div class="collection-grid collection-grid--tight">
+        {%- for product in featured_collection.products limit: section.settings.limit -%}
+          <div class="collection-grid__item" data-reveal>
+            {% render 'product-card', product: product %}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Collection mise en avant",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Vous aimerez aussi" },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "limit", "label": "Nombre de produits", "min": 2, "max": 12, "step": 1, "default": 4 }
+  ],
+  "presets": [{ "name": "Collection mise en avant" }]
+}
+{% endschema %}

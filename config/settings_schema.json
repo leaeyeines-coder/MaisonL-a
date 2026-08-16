@@ -1,0 +1,172 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Maison L.",
+    "theme_author": "Maison L.",
+    "theme_version": "1.0.0",
+    "theme_documentation_url": "",
+    "theme_support_url": ""
+  },
+  {
+    "name": "Couleurs",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Palette Mocha Mousse"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Fond principal (ivoire lin)",
+        "default": "#FBF6EF"
+      },
+      {
+        "type": "color",
+        "id": "color_background_alt",
+        "label": "Fond alterné (beige mocha clair)",
+        "default": "#F1E1CF"
+      },
+      {
+        "type": "color",
+        "id": "color_cream",
+        "label": "Blanc porcelaine (cartes)",
+        "default": "#FFFDF9"
+      },
+      {
+        "type": "color",
+        "id": "color_mocha",
+        "label": "Mocha (couleur signature)",
+        "default": "#A6785F"
+      },
+      {
+        "type": "color",
+        "id": "color_mocha_dark",
+        "label": "Mocha foncé (hover, accents)",
+        "default": "#7C5842"
+      },
+      {
+        "type": "color",
+        "id": "color_chocolate",
+        "label": "Chocolat profond (header, footer, fonds sombres)",
+        "default": "#3A2A1F"
+      },
+      {
+        "type": "color",
+        "id": "color_gold",
+        "label": "Or (accents, bordures, liserés)",
+        "default": "#C6A15C"
+      },
+      {
+        "type": "color",
+        "id": "color_sage",
+        "label": "Vert sauge (accent végétal, badge Premium)",
+        "default": "#7C8968"
+      },
+      {
+        "type": "color",
+        "id": "color_ink",
+        "label": "Texte principal",
+        "default": "#2B2019"
+      },
+      {
+        "type": "color",
+        "id": "color_ink_light",
+        "label": "Texte secondaire",
+        "default": "#6B5B4E"
+      }
+    ]
+  },
+  {
+    "name": "Typographie",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "label": "Police des titres",
+        "default": "cormorant_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "label": "Police du texte courant",
+        "default": "jost_n4"
+      }
+    ]
+  },
+  {
+    "name": "Logo & favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "label": "Largeur du logo",
+        "min": 80,
+        "max": 260,
+        "step": 10,
+        "default": 150,
+        "unit": "px"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  },
+  {
+    "name": "Coordonnées & réseaux",
+    "settings": [
+      {
+        "type": "text",
+        "id": "shop_phone",
+        "label": "Téléphone",
+        "default": "+33 6 00 00 00 00"
+      },
+      {
+        "type": "text",
+        "id": "shop_email",
+        "label": "Email de contact",
+        "default": "contact@maison-l.fr"
+      },
+      {
+        "type": "header",
+        "content": "Réseaux sociaux"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram (URL)"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest",
+        "label": "Pinterest (URL)"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook",
+        "label": "Facebook (URL)"
+      }
+    ]
+  },
+  {
+    "name": "Panier",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Type de panier",
+        "default": "drawer",
+        "options": [
+          { "value": "drawer", "label": "Tiroir latéral" },
+          { "value": "page", "label": "Page dédiée" }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "devis": {
+      "type": "devis-form",
+      "blocks": {
+        "point-1": { "type": "point", "settings": { "text": "Réponse sous 48h" } },
+        "point-2": { "type": "point", "settings": { "text": "Devis gratuit et sans engagement" } },
+        "point-3": { "type": "point", "settings": { "text": "Livraison & reprise possibles" } }
+      },
+      "block_order": ["point-1", "point-2", "point-3"],
+      "settings": {}
+    }
+  },
+  "order": ["devis"]
+}

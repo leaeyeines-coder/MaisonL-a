@@ -1,0 +1,60 @@
+<section class="collection-grid-section" data-collection-filters>
+  <div class="container">
+    <div class="collection-filters">
+      <div class="collection-filters__group" role="group" aria-label="Filtrer par formule">
+        <span class="collection-filters__label">Formule</span>
+        <button type="button" class="filter-chip is-active" data-filter-tier="all">Toutes</button>
+        <button type="button" class="filter-chip" data-filter-tier="eco">Éco</button>
+        <button type="button" class="filter-chip" data-filter-tier="premium">Premium</button>
+        <button type="button" class="filter-chip" data-filter-tier="luxe">Luxe</button>
+      </div>
+      <div class="collection-filters__sort">
+        <label for="SortBy" class="visually-hidden">Trier</label>
+        <select id="SortBy" data-sort-select>
+          <option value="manual">Tri manuel</option>
+          <option value="title-ascending">Nom, A-Z</option>
+          <option value="price-ascending">Prix croissant</option>
+          <option value="price-descending">Prix décroissant</option>
+        </select>
+      </div>
+    </div>
+
+    {%- paginate collection.products by 24 -%}
+      {%- if collection.products.size == 0 -%}
+        <div class="collection-empty">
+          <p>Cette collection sera bientôt disponible. Contactez-nous pour une sélection sur mesure.</p>
+          <a href="{{ routes.root_url }}#devis" class="button button--primary">Demander un devis</a>
+        </div>
+      {%- else -%}
+        <div class="collection-grid" data-product-grid>
+          {%- for product in collection.products -%}
+            <div class="collection-grid__item" data-grid-item data-price="{{ product.price_min }}" data-title="{{ product.title | escape }}">
+              {% render 'product-card', product: product %}
+            </div>
+          {%- endfor -%}
+        </div>
+        <p class="collection-filters__empty-state" data-no-results hidden>Aucune pièce ne correspond à ce filtre pour le moment.</p>
+
+        {%- if paginate.pages > 1 -%}
+          <nav class="pagination" aria-label="Pagination">
+            {%- if paginate.previous -%}
+              <a href="{{ paginate.previous.url }}" class="pagination__link">{% render 'icon', name: 'arrow-right', size: 14 %} Précédent</a>
+            {%- endif -%}
+            <span class="pagination__current">Page {{ paginate.current_page }} / {{ paginate.pages }}</span>
+            {%- if paginate.next -%}
+              <a href="{{ paginate.next.url }}" class="pagination__link">Suivant {% render 'icon', name: 'arrow-right', size: 14 %}</a>
+            {%- endif -%}
+          </nav>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Grille produits",
+  "settings": [],
+  "presets": [{ "name": "Grille produits" }]
+}
+{% endschema %}

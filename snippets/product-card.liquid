@@ -1,0 +1,71 @@
+{%- comment -%}
+  Accepts: product
+{%- endcomment -%}
+{%- liquid
+  assign tier = 'standard'
+  if product.tags contains 'luxe'
+    assign tier = 'luxe'
+  elsif product.tags contains 'premium'
+    assign tier = 'premium'
+  elsif product.tags contains 'eco'
+    assign tier = 'eco'
+  endif
+
+  assign category = ''
+  for tag in product.tags
+    if tag contains 'categorie:'
+      assign category = tag | remove: 'categorie:'
+    endif
+  endfor
+-%}
+<div class="product-card" data-tier="{{ tier }}" data-category="{{ category }}">
+  <a href="{{ product.url }}" class="product-card__media">
+    {%- if product.featured_image -%}
+      <img
+        src="{{ product.featured_image | image_url: width: 600 }}"
+        srcset="{{ product.featured_image | image_url: width: 400 }} 400w, {{ product.featured_image | image_url: width: 600 }} 600w"
+        sizes="(max-width: 749px) 50vw, 25vw"
+        alt="{{ product.featured_image.alt | escape }}"
+        width="600"
+        height="{{ 600 | divided_by: product.featured_image.aspect_ratio | default: 600 }}"
+        loading="lazy"
+      >
+      {%- if product.images.size > 1 -%}
+        <img
+          class="product-card__media-hover"
+          src="{{ product.images[1] | image_url: width: 600 }}"
+          alt=""
+          width="600"
+          height="{{ 600 | divided_by: product.images[1].aspect_ratio | default: 600 }}"
+          loading="lazy"
+        >
+      {%- endif -%}
+    {%- else -%}
+      <div class="product-card__placeholder">{% render 'icon', name: 'leaf', size: 28 %}</div>
+    {%- endif -%}
+    {%- if tier != 'standard' -%}
+      <span class="tier-badge tier-badge--{{ tier }}">{{ tier | capitalize }}</span>
+    {%- endif -%}
+  </a>
+  <div class="product-card__body">
+    <h3 class="product-card__title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    <p class="product-card__price">
+      {%- if product.price_varies -%}
+        Dès {{ product.price_min | money }}
+      {%- else -%}
+        {{ product.price | money }}
+      {%- endif -%}
+      <span class="product-card__price-unit">/ location</span>
+    </p>
+    {% form 'product', product, class: 'product-card__quick-add' %}
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      <button type="submit" class="button button--outline button--small"{% if product.selected_or_first_available_variant.available == false %} disabled{% endif %}>
+        {%- if product.selected_or_first_available_variant.available == false -%}
+          Indisponible
+        {%- else -%}
+          Ajouter
+        {%- endif -%}
+      </button>
+    {% endform %}
+  </div>
+</div>

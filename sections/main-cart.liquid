@@ -1,0 +1,81 @@
+<section class="cart-page">
+  <div class="container">
+    <h1 class="cart-page__title">Votre réservation</h1>
+
+    {%- if cart.item_count == 0 -%}
+      <div class="cart-page__empty">
+        <p>Votre réservation est vide pour le moment.</p>
+        <a href="{{ routes.root_url }}#a-la-carte" class="button button--primary">Composer ma table</a>
+      </div>
+    {%- else -%}
+      {% form 'cart', cart, id: 'CartForm' %}
+        <div class="cart-page__grid">
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th>Pièce</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {%- for item in cart.items -%}
+                <tr class="cart-table__row">
+                  <td class="cart-table__product">
+                    <a href="{{ item.url }}" class="cart-table__image">
+                      {%- if item.image -%}
+                        <img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.image.alt | escape }}" width="80" height="80" loading="lazy">
+                      {%- else -%}
+                        <span class="placeholder-swatch"></span>
+                      {%- endif -%}
+                    </a>
+                    <div>
+                      <a href="{{ item.url }}">{{ item.product.title }}</a>
+                      {%- if item.variant.title != 'Default Title' -%}
+                        <p class="cart-table__variant">{{ item.variant.title }}</p>
+                      {%- endif -%}
+                    </div>
+                  </td>
+                  <td>{{ item.original_price | money }}</td>
+                  <td>
+                    <quantity-input class="quantity-input">
+                      <button type="button" data-cart-qty-decrease data-line="{{ forloop.index }}" aria-label="Diminuer la quantité">{% render 'icon', name: 'minus', size: 14 %}</button>
+                      <input type="number" min="0" name="updates[]" value="{{ item.quantity }}" data-cart-qty-input data-line="{{ forloop.index }}" aria-label="Quantité">
+                      <button type="button" data-cart-qty-increase data-line="{{ forloop.index }}" aria-label="Augmenter la quantité">{% render 'icon', name: 'plus', size: 14 %}</button>
+                    </quantity-input>
+                  </td>
+                  <td>{{ item.final_line_price | money }}</td>
+                  <td>
+                    <button type="button" class="cart-table__remove" data-cart-remove data-line="{{ forloop.index }}" aria-label="Retirer">
+                      {% render 'icon', name: 'trash', size: 16 %}
+                    </button>
+                  </td>
+                </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
+
+          <aside class="cart-summary">
+            <h2>Récapitulatif</h2>
+            <div class="cart-summary__row">
+              <span>Sous-total</span>
+              <span>{{ cart.total_price | money }}</span>
+            </div>
+            <p class="cart-summary__note">La date de l'événement, la livraison, la reprise et la caution seront confirmées avec vous lors de la validation de votre devis.</p>
+            <button type="submit" name="checkout" class="button button--primary button--full">Valider ma réservation</button>
+            <a href="{{ routes.root_url }}#devis" class="button button--ghost button--full">Ajouter une prestation sur devis</a>
+          </aside>
+        </div>
+      {% endform %}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Panier",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,89 @@
+<footer class="site-footer">
+  <div class="site-footer__top container">
+    <div class="site-footer__brand">
+      {%- if settings.logo -%}
+        <img src="{{ settings.logo | image_url: width: 240 }}" alt="{{ shop.name }}" width="140" loading="lazy" class="site-footer__logo">
+      {%- else -%}
+        <span class="site-footer__wordmark">{{ shop.name }}</span>
+      {%- endif -%}
+      <p>{{ section.settings.tagline }}</p>
+      <div class="site-footer__socials">
+        {%- if settings.social_instagram != blank -%}
+          <a href="{{ settings.social_instagram }}" aria-label="Instagram" target="_blank" rel="noopener">{% render 'icon', name: 'instagram' %}</a>
+        {%- endif -%}
+        {%- if settings.social_pinterest != blank -%}
+          <a href="{{ settings.social_pinterest }}" aria-label="Pinterest" target="_blank" rel="noopener">{% render 'icon', name: 'pinterest' %}</a>
+        {%- endif -%}
+        {%- if settings.social_facebook != blank -%}
+          <a href="{{ settings.social_facebook }}" aria-label="Facebook" target="_blank" rel="noopener">{% render 'icon', name: 'facebook' %}</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="site-footer__column">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="{{ routes.root_url }}#histoire">Notre histoire</a></li>
+        <li><a href="{{ routes.root_url }}#formules">Nos formules</a></li>
+        <li><a href="{{ routes.root_url }}#a-la-carte">À la carte</a></li>
+        <li><a href="{{ routes.root_url }}#devis">Devis sur mesure</a></li>
+      </ul>
+    </div>
+
+    <div class="site-footer__column">
+      <h3>Contact</h3>
+      <ul>
+        {%- if settings.shop_phone != blank -%}
+          <li><a href="tel:{{ settings.shop_phone | remove: ' ' }}">{% render 'icon', name: 'phone', size: 15 %} {{ settings.shop_phone }}</a></li>
+        {%- endif -%}
+        {%- if settings.shop_email != blank -%}
+          <li><a href="mailto:{{ settings.shop_email }}">{% render 'icon', name: 'mail', size: 15 %} {{ settings.shop_email }}</a></li>
+        {%- endif -%}
+        {%- if section.settings.address != blank -%}
+          <li>{% render 'icon', name: 'map-pin', size: 15 %} {{ section.settings.address }}</li>
+        {%- endif -%}
+      </ul>
+    </div>
+
+    <div class="site-footer__column site-footer__newsletter">
+      <h3>Restez informé·e</h3>
+      <p>Nouveautés, inspirations de tables et offres de saison.</p>
+      {% form 'customer' %}
+        {%- if form.posted_successfully? -%}
+          <p class="form-success">Merci, votre inscription est confirmée.</p>
+        {%- endif -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="newsletter-form">
+          <label for="NewsletterEmail" class="visually-hidden">Email</label>
+          <input type="email" name="contact[email]" id="NewsletterEmail" placeholder="Votre email" required>
+          <button type="submit" aria-label="S'inscrire">{% render 'icon', name: 'arrow-right' %}</button>
+        </div>
+      {% endform %}
+    </div>
+  </div>
+
+  <div class="site-footer__bottom container">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. Tous droits réservés.</p>
+    <p class="site-footer__credit">Location de vaisselle et art de la table pour mariages &amp; réceptions</p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Pied de page",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Signature de marque",
+      "default": "Une vaisselle d'exception pour sublimer chaque table de mariage."
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Adresse",
+      "default": "12 rue des Artisans, 75000 Paris"
+    }
+  ]
+}
+{% endschema %}

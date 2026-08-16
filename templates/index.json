@@ -1,0 +1,84 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "story": {
+      "type": "story",
+      "blocks": {
+        "stat-1": { "type": "stat", "settings": { "number": "500+", "label": "mariages accompagnés" } },
+        "stat-2": { "type": "stat", "settings": { "number": "3", "label": "formules sur mesure" } },
+        "stat-3": { "type": "stat", "settings": { "number": "10 ans", "label": "d'expérience" } }
+      },
+      "block_order": ["stat-1", "stat-2", "stat-3"],
+      "settings": {}
+    },
+    "location": {
+      "type": "location",
+      "settings": {}
+    },
+    "formules": {
+      "type": "formules",
+      "blocks": {
+        "formule-eco": {
+          "type": "formule",
+          "settings": {
+            "name": "Éco",
+            "price": "1,90 €",
+            "description": "L'essentiel, dans des lignes épurées et intemporelles.",
+            "included": "Assiettes en porcelaine blanche\nCouverts inox brossé\nVerres à eau et à vin\nServiettes en coton",
+            "button_label": "Découvrir la formule Éco"
+          }
+        },
+        "formule-premium": {
+          "type": "formule",
+          "settings": {
+            "name": "Premium",
+            "price": "3,20 €",
+            "description": "Des matières nobles et des finitions dorées pour une table raffinée.",
+            "included": "Assiettes bord doré\nCouverts dorés\nVerrerie taillée\nSous-assiettes en rotin\nServiettes en lin",
+            "featured": true,
+            "badge_text": "Le plus choisi",
+            "button_label": "Découvrir la formule Premium"
+          }
+        },
+        "formule-luxe": {
+          "type": "formule",
+          "settings": {
+            "name": "Luxe",
+            "price": "5,50 €",
+            "description": "L'excellence absolue : porcelaine fine, cristal et pièces d'exception.",
+            "included": "Porcelaine fine peinte main\nCouverts argentés\nCristal soufflé bouche\nChemins de table en soie\nDécoration florale assortie",
+            "button_label": "Découvrir la formule Luxe"
+          }
+        }
+      },
+      "block_order": ["formule-eco", "formule-premium", "formule-luxe"],
+      "settings": {}
+    },
+    "a-la-carte": {
+      "type": "a-la-carte",
+      "blocks": {
+        "cat-fourchettes": { "type": "categorie", "settings": { "label": "Fourchettes" } },
+        "cat-couteaux": { "type": "categorie", "settings": { "label": "Couteaux" } },
+        "cat-verres": { "type": "categorie", "settings": { "label": "Verres" } },
+        "cat-assiettes": { "type": "categorie", "settings": { "label": "Assiettes" } },
+        "cat-decoration": { "type": "categorie", "settings": { "label": "Décoration" } }
+      },
+      "block_order": ["cat-fourchettes", "cat-couteaux", "cat-verres", "cat-assiettes", "cat-decoration"],
+      "settings": {}
+    },
+    "devis": {
+      "type": "devis-form",
+      "blocks": {
+        "point-1": { "type": "point", "settings": { "text": "Réponse sous 48h" } },
+        "point-2": { "type": "point", "settings": { "text": "Devis gratuit et sans engagement" } },
+        "point-3": { "type": "point", "settings": { "text": "Livraison & reprise possibles" } }
+      },
+      "block_order": ["point-1", "point-2", "point-3"],
+      "settings": {}
+    }
+  },
+  "order": ["hero", "story", "location", "formules", "a-la-carte", "devis"]
+}

@@ -1,0 +1,132 @@
+<section class="devis" id="devis">
+  <div class="container devis__grid">
+    <div class="devis__intro" data-reveal>
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.text }}</p>
+
+      <ul class="devis__points">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'point' -%}
+            <li {{ block.shopify_attributes }}>
+              {% render 'icon', name: 'check', size: 14 %} {{ block.settings.text }}
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+
+      <div class="devis__contact-alt">
+        <p>Vous préférez en parler directement ?</p>
+        {%- if settings.shop_phone != blank -%}
+          <a href="tel:{{ settings.shop_phone | remove: ' ' }}">{% render 'icon', name: 'phone', size: 15 %} {{ settings.shop_phone }}</a>
+        {%- endif -%}
+        {%- if settings.shop_email != blank -%}
+          <a href="mailto:{{ settings.shop_email }}">{% render 'icon', name: 'mail', size: 15 %} {{ settings.shop_email }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="devis__form-wrap" data-reveal>
+      {% form 'contact', id: 'DevisForm', class: 'devis-form' %}
+        {%- if form.posted_successfully? -%}
+          <div class="form-success" role="status">
+            <p>Merci ! Votre demande de devis a bien été envoyée. Notre équipe vous répond sous 48h.</p>
+          </div>
+        {%- endif -%}
+
+        {%- if form.errors -%}
+          <div class="form-error" role="alert">
+            <p>{{ form.errors | default_errors }}</p>
+          </div>
+        {%- endif -%}
+
+        <input type="hidden" name="contact[Origine]" value="Formulaire de devis mariage">
+
+        <div class="form-row form-row--split">
+          <div class="form-field">
+            <label for="DevisName">Nom &amp; prénom *</label>
+            <input type="text" id="DevisName" name="contact[name]" required value="{{ form.name }}">
+          </div>
+          <div class="form-field">
+            <label for="DevisEmail">Email *</label>
+            <input type="email" id="DevisEmail" name="contact[email]" required value="{{ form.email }}">
+          </div>
+        </div>
+
+        <div class="form-row form-row--split">
+          <div class="form-field">
+            <label for="DevisPhone">Téléphone</label>
+            <input type="tel" id="DevisPhone" name="contact[Téléphone]" value="{{ form.phone }}">
+          </div>
+          <div class="form-field">
+            <label for="DevisDate">Date de l'événement</label>
+            <input type="date" id="DevisDate" name="contact[Date de l'événement]">
+          </div>
+        </div>
+
+        <div class="form-row form-row--split">
+          <div class="form-field">
+            <label for="DevisGuests">Nombre d'invités</label>
+            <input type="number" min="1" id="DevisGuests" name="contact[Nombre d'invités]" placeholder="Ex. 120">
+          </div>
+          <div class="form-field">
+            <label for="DevisLocation">Lieu de réception</label>
+            <input type="text" id="DevisLocation" name="contact[Lieu]" placeholder="Ville, domaine, salle...">
+          </div>
+        </div>
+
+        <fieldset class="form-field form-field--checkboxes">
+          <legend>Prestations souhaitées</legend>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="contact[Prestations][]" value="Formule Éco"> Formule Éco</label>
+            <label><input type="checkbox" name="contact[Prestations][]" value="Formule Premium"> Formule Premium</label>
+            <label><input type="checkbox" name="contact[Prestations][]" value="Formule Luxe"> Formule Luxe</label>
+            <label><input type="checkbox" name="contact[Prestations][]" value="Décoration de table"> Décoration de table</label>
+            <label><input type="checkbox" name="contact[Prestations][]" value="Livraison et reprise"> Livraison &amp; reprise</label>
+            <label><input type="checkbox" name="contact[Prestations][]" value="Mise en place sur site"> Mise en place sur site</label>
+            <label><input type="checkbox" name="contact[Prestations][]" value="Autre prestation sur mesure"> Autre / sur mesure</label>
+          </div>
+        </fieldset>
+
+        <div class="form-field">
+          <label for="DevisMessage">Parlez-nous de votre projet</label>
+          <textarea id="DevisMessage" name="contact[body]" rows="4" placeholder="Style de table, univers, contraintes particulières...">{{ form.body }}</textarea>
+        </div>
+
+        <button type="submit" class="button button--primary button--full">{{ section.settings.button_label }}</button>
+        <p class="devis-form__note">En envoyant ce formulaire, vous acceptez d'être recontacté·e par notre équipe au sujet de votre demande.</p>
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Devis sur mesure",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Sur devis" },
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Une prestation qui ne figure pas dans nos formules ?" },
+    { "type": "textarea", "id": "text", "label": "Texte", "default": "Décoration florale, nappage sur mesure, mobilier, mise en place ou livraison en dehors de notre zone habituelle : décrivez-nous votre projet, nous revenons vers vous avec une proposition personnalisée." },
+    { "type": "text", "id": "button_label", "label": "Texte du bouton", "default": "Envoyer ma demande de devis" }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Argument",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Texte", "default": "Réponse sous 48h" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Devis sur mesure",
+      "blocks": [
+        { "type": "point", "settings": { "text": "Réponse sous 48h" } },
+        { "type": "point", "settings": { "text": "Devis gratuit et sans engagement" } },
+        { "type": "point", "settings": { "text": "Livraison & reprise possibles" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

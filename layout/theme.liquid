@@ -1,0 +1,80 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}" data-cart-type="{{ settings.cart_type }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.color_chocolate }}">
+    <title>
+      {{ page_title }}{% if current_tags %} &ndash; tagué "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    <link rel="canonical" href="{{ canonical_url }}">
+    {% if settings.favicon %}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 96, height: 96 }}">
+    {% endif %}
+
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+
+    {%- style -%}
+      :root {
+        --color-bg: {{ settings.color_background }};
+        --color-bg-alt: {{ settings.color_background_alt }};
+        --color-cream: {{ settings.color_cream }};
+        --color-mocha: {{ settings.color_mocha }};
+        --color-mocha-dark: {{ settings.color_mocha_dark }};
+        --color-chocolate: {{ settings.color_chocolate }};
+        --color-gold: {{ settings.color_gold }};
+        --color-sage: {{ settings.color_sage }};
+        --color-ink: {{ settings.color_ink }};
+        --color-ink-light: {{ settings.color_ink_light }};
+        --font-heading: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+        --font-heading-style: {{ settings.type_header_font.style }};
+        --font-heading-weight: {{ settings.type_header_font.weight }};
+        --font-body: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+        --font-body-style: {{ settings.type_body_font.style }};
+        --font-body-weight: {{ settings.type_body_font.weight }};
+        --logo-width: {{ settings.logo_width }}px;
+      }
+    {%- endstyle -%}
+
+    {{ settings.type_header_font | font_face: font_display: 'swap' }}
+    {{ settings.type_body_font | font_face: font_display: 'swap' }}
+
+    {{ content_for_header }}
+  </head>
+
+  <body class="template-{{ request.page_type | handleize }}">
+    <a class="skip-to-content" href="#MainContent">Aller au contenu</a>
+
+    {% sections 'header-group' %}
+
+    <main id="MainContent" class="main-content">
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+
+    <div id="cart-drawer" class="cart-drawer" aria-hidden="true">
+      <div class="cart-drawer__overlay" data-cart-drawer-close></div>
+      <div class="cart-drawer__panel" role="dialog" aria-label="Votre réservation">
+        <div class="cart-drawer__header">
+          <h2>Votre réservation</h2>
+          <button type="button" class="icon-button" data-cart-drawer-close aria-label="Fermer">
+            {% render 'icon', name: 'close' %}
+          </button>
+        </div>
+        <div class="cart-drawer__body" id="cart-drawer-body">
+          {% render 'cart-drawer-content' %}
+        </div>
+      </div>
+    </div>
+
+    {{ 'theme.js' | asset_url | script_tag }}
+  </body>
+</html>
