@@ -41,9 +41,10 @@
           "settings": {
             "image": "shopify://shop_images/formule-essentiel-couverts.jpg",
             "name": "Emma",
-            "price": "1,90 €",
+            "price": "À partir de 0,30 €",
+            "price_unit": "/ pièce",
             "description": "L'essentiel, dans des lignes épurées et intemporelles.",
-            "included": "Assiettes en porcelaine blanche\nCouverts inox brossé\nVerres à eau et à vin\nServiettes en coton",
+            "included": "Fourchettes\nCouteaux\nCuillères à dessert\nCuillères à entrée\nVerres à eau\nVerres à vin\nVerres à champagne\nFlûtes à champagne",
             "button_label": "Découvrir la formule Emma",
             "collection_link": "/collections/formule-eco"
           }
