@@ -32,7 +32,10 @@
     },
     "location": {
       "type": "location",
-      "settings": {}
+      "settings": {
+        "address": "Rue de la Paix, 83660 Carnoules (Var)",
+        "map_embed_url": "https://www.google.com/maps?q=Rue+de+la+Paix,+83660+Carnoules,+France&output=embed"
+      }
     },
     "formules": {
       "type": "formules",
