@@ -242,8 +242,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 .story { padding-block: 100px; }
 .story__grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
 .story__media { position: relative; }
-.story__media img { border-radius: 18px; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-.story__placeholder { border-radius: 18px; aspect-ratio: 4/3; background: linear-gradient(160deg, var(--color-bg-alt), var(--color-mocha)); }
+.story__media img { border-radius: 18px; width: 100%; aspect-ratio: 3/2; object-fit: cover; }
+.story__placeholder { border-radius: 18px; aspect-ratio: 3/2; background: linear-gradient(160deg, var(--color-bg-alt), var(--color-mocha)); }
 .story__frame { display: none; }
 .story__text { color: var(--color-ink-light); }
 .story__signature { font-family: var(--font-heading); font-size: 1.3rem; color: var(--color-mocha-dark); margin-top: 1.2em; }
