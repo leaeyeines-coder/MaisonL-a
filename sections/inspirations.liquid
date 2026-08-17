@@ -15,7 +15,9 @@
     <ul class="inspirations__slider" data-slider data-reveal>
       {%- for block in section.blocks -%}
         {%- if block.type == 'theme' -%}
-          {%- capture images_json -%}[{%- if block.settings.image -%}{"src":"{{ block.settings.image | image_url: width: 1200 }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}{%- if block.settings.image_2 -%},{"src":"{{ block.settings.image_2 | image_url: width: 1200 }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}{%- if block.settings.image_3 -%},{"src":"{{ block.settings.image_3 | image_url: width: 1200 }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}{%- if block.settings.image_4 -%},{"src":"{{ block.settings.image_4 | image_url: width: 1200 }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}]{%- endcapture -%}
+          {%- assign gallery_lines = block.settings.gallery | newline_to_br | split: '<br />' -%}
+          {%- capture images_json -%}[{%- if block.settings.image -%}{"src":"{{ block.settings.image | image_url: width: 1200 }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}{%- if block.settings.image_2 -%},{"src":"{{ block.settings.image_2 | image_url: width: 1200 }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}{%- if block.settings.image_3 -%},{"src":"{{ block.settings.image_3 | image_url: width: 1200 }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}{%- if block.settings.image_4 -%},{"src":"{{ block.settings.image_4 | image_url: width: 1200 }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}{%- for line in gallery_lines -%}{%- assign url = line | strip -%}{%- if url != blank -%},{"src":"{{ url }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}{%- endfor -%}]{%- endcapture -%}
+          {%- assign first_gallery_url = gallery_lines | first | strip -%}
           <li class="inspiration-card" {{ block.shopify_attributes }}>
             <button type="button" class="inspiration-card__media" data-inspiration-open
               data-name="{{ block.settings.name | escape }}"
@@ -25,6 +27,8 @@
               aria-label="Voir les idées de décoration {{ block.settings.name | escape }}">
               {%- if block.settings.image -%}
                 <img src="{{ block.settings.image | image_url: width: 700 }}" alt="{{ block.settings.name | escape }}" width="700" height="{{ 700 | divided_by: block.settings.image.aspect_ratio | default: 500 }}" loading="lazy">
+              {%- elsif first_gallery_url != blank -%}
+                <img src="{{ first_gallery_url }}" alt="{{ block.settings.name | escape }}" loading="lazy">
               {%- else -%}
                 <div class="inspiration-card__placeholder">{% render 'icon', name: 'sparkle', size: 30 %}</div>
               {%- endif -%}
@@ -82,6 +86,7 @@
         { "type": "image_picker", "id": "image_2", "label": "Photo supplémentaire 1" },
         { "type": "image_picker", "id": "image_3", "label": "Photo supplémentaire 2" },
         { "type": "image_picker", "id": "image_4", "label": "Photo supplémentaire 3" },
+        { "type": "textarea", "id": "gallery", "label": "Galerie technique (réservé)", "info": "URLs d'images ajoutées par le développeur, une par ligne. Ne pas modifier." },
         { "type": "text", "id": "name", "label": "Nom du thème", "default": "Dolce Vita" },
         { "type": "textarea", "id": "text", "label": "Texte", "default": "Citronniers, terracotta et douceur italienne pour une table estivale et ensoleillée." }
       ]

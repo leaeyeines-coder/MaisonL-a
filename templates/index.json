@@ -107,7 +107,14 @@
     "inspirations": {
       "type": "inspirations",
       "blocks": {
-        "theme-1": { "type": "theme", "settings": { "name": "Dolce Vita", "text": "Citronniers, terracotta et douceur italienne pour une table estivale et ensoleillée." } },
+        "theme-1": {
+          "type": "theme",
+          "settings": {
+            "name": "Dolce Vita",
+            "text": "Citronniers, terracotta et douceur italienne pour une table estivale et ensoleillée. Plusieurs compositions possibles : cliquez pour découvrir nos idées et demander un devis sur ce thème.",
+            "gallery": "dolce-vita-1.png\ndolce-vita-2.jpg\ndolce-vita-3.jpg\ndolce-vita-4.jpg\ndolce-vita-5.jpg\ndolce-vita-6.jpg"
+          }
+        },
         "theme-2": { "type": "theme", "settings": { "name": "Coloré", "text": "Des teintes vives et joyeuses pour une réception pleine de peps et de bonne humeur." } },
         "theme-3": { "type": "theme", "settings": { "name": "Champêtre", "text": "Bois brut, lin naturel et fleurs des champs pour une table simple et chaleureuse." } },
         "theme-4": { "type": "theme", "settings": { "name": "Chic", "text": "Noir, blanc et touches dorées pour une réception sobre et élégante." } }
