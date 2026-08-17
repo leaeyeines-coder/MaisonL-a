@@ -29,7 +29,7 @@
                 <small>{{ block.settings.price_unit | default: '/ pièce, dès' }}</small>
               </p>
 
-              <a href="{{ block.settings.collection_link | default: '#a-la-carte' }}" class="button {% if block.settings.featured %}button--primary{% else %}button--outline{% endif %} button--full">
+              <a href="{{ block.settings.collection_link | default: '#a-la-carte' }}" class="button button--primary button--full">
                 {{ block.settings.button_label | default: 'Découvrir la formule' }}
               </a>
             </div>
