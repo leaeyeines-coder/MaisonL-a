@@ -28,7 +28,6 @@
                 <span>{{ block.settings.price }}</span>
                 <small>{{ block.settings.price_unit | default: '/ pièce, dès' }}</small>
               </p>
-              <p class="formule-card__description">{{ block.settings.description }}</p>
 
               {%- if block.settings.included != blank -%}
                 <ul class="formule-card__list">
