@@ -15,14 +15,21 @@
     <ul class="inspirations__slider" data-slider data-reveal>
       {%- for block in section.blocks -%}
         {%- if block.type == 'theme' -%}
+          {%- capture images_json -%}[{%- if block.settings.image -%}{"src":"{{ block.settings.image | image_url: width: 1200 }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}{%- if block.settings.image_2 -%},{"src":"{{ block.settings.image_2 | image_url: width: 1200 }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}{%- if block.settings.image_3 -%},{"src":"{{ block.settings.image_3 | image_url: width: 1200 }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}{%- if block.settings.image_4 -%},{"src":"{{ block.settings.image_4 | image_url: width: 1200 }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}]{%- endcapture -%}
           <li class="inspiration-card" {{ block.shopify_attributes }}>
-            <div class="inspiration-card__media">
+            <button type="button" class="inspiration-card__media" data-inspiration-open
+              data-name="{{ block.settings.name | escape }}"
+              data-text="{{ block.settings.text | escape }}"
+              data-devis-href="{{ routes.root_url }}?style={{ block.settings.name | url_encode }}#devis"
+              data-images='{{ images_json }}'
+              aria-label="Voir les idées de décoration {{ block.settings.name | escape }}">
               {%- if block.settings.image -%}
                 <img src="{{ block.settings.image | image_url: width: 700 }}" alt="{{ block.settings.name | escape }}" width="700" height="{{ 700 | divided_by: block.settings.image.aspect_ratio | default: 500 }}" loading="lazy">
               {%- else -%}
                 <div class="inspiration-card__placeholder">{% render 'icon', name: 'sparkle', size: 30 %}</div>
               {%- endif -%}
-            </div>
+              <span class="inspiration-card__hint">Voir les idées {% render 'icon', name: 'arrow-right', size: 12 %}</span>
+            </button>
             <div class="inspiration-card__body">
               <h3>{{ block.settings.name }}</h3>
               <p>{{ block.settings.text }}</p>
@@ -39,6 +46,23 @@
       {% render 'icon', name: 'arrow-right', size: 18 %}
     </button>
   </div>
+
+  <div class="inspiration-modal" data-inspiration-modal aria-hidden="true">
+    <div class="inspiration-modal__overlay" data-inspiration-close></div>
+    <div class="inspiration-modal__panel" role="dialog" aria-modal="true" aria-label="Idées de décoration">
+      <button type="button" class="icon-button inspiration-modal__close" data-inspiration-close aria-label="Fermer">
+        {% render 'icon', name: 'close' %}
+      </button>
+      <div class="inspiration-modal__gallery" data-inspiration-gallery></div>
+      <div class="inspiration-modal__body">
+        <h3 data-inspiration-title></h3>
+        <p data-inspiration-text></p>
+        <a href="#devis" class="button button--primary button--full" data-inspiration-devis>
+          Demander un devis {% render 'icon', name: 'arrow-right', size: 14 %}
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
 {% schema %}
@@ -54,7 +78,10 @@
       "type": "theme",
       "name": "Thème",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "image_picker", "id": "image", "label": "Photo principale" },
+        { "type": "image_picker", "id": "image_2", "label": "Photo supplémentaire 1" },
+        { "type": "image_picker", "id": "image_3", "label": "Photo supplémentaire 2" },
+        { "type": "image_picker", "id": "image_4", "label": "Photo supplémentaire 3" },
         { "type": "text", "id": "name", "label": "Nom du thème", "default": "Dolce Vita" },
         { "type": "textarea", "id": "text", "label": "Texte", "default": "Citronniers, terracotta et douceur italienne pour une table estivale et ensoleillée." }
       ]

@@ -440,6 +440,51 @@ document.addEventListener('click', function (e) {
 })();
 
 /* ==========================================================================
+   Inspirations : modale galerie d'idées de décoration
+   ========================================================================== */
+(function inspirationsModal() {
+  var modal = document.querySelector('[data-inspiration-modal]');
+  if (!modal) return;
+
+  var galleryEl = modal.querySelector('[data-inspiration-gallery]');
+  var titleEl = modal.querySelector('[data-inspiration-title]');
+  var textEl = modal.querySelector('[data-inspiration-text]');
+  var devisEl = modal.querySelector('[data-inspiration-devis]');
+
+  function open(trigger) {
+    var images = [];
+    try { images = JSON.parse(trigger.dataset.images || '[]'); } catch (e) { images = []; }
+
+    if (galleryEl) {
+      galleryEl.innerHTML = images.map(function (img) {
+        return '<img src="' + img.src + '" alt="' + (img.alt || '') + '" loading="lazy">';
+      }).join('');
+    }
+    if (titleEl) titleEl.textContent = trigger.dataset.name || '';
+    if (textEl) textEl.textContent = trigger.dataset.text || '';
+    if (devisEl) devisEl.href = trigger.dataset.devisHref || '#devis';
+
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-inspiration-open]').forEach(function (btn) {
+    btn.addEventListener('click', function () { open(btn); });
+  });
+  modal.querySelectorAll('[data-inspiration-close]').forEach(function (el) {
+    el.addEventListener('click', close);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+})();
+
+/* ==========================================================================
    Préremplissage du devis depuis un thème d'inspiration
    ========================================================================== */
 (function prefillDevisStyle() {
