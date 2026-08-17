@@ -45,7 +45,7 @@
           "settings": {
             "image": "shopify://shop_images/formule-emma-set-complet.jpg",
             "name": "Emma",
-            "price": "0,30 €",
+            "price": "À partir de 0,30 €",
             "price_unit": "/ pièce",
             "description": "L'essentiel, dans des lignes épurées et intemporelles.",
             "included": "Fourchettes\nCouteaux\nCuillères à dessert\nCuillères à entrée\nVerres à eau\nVerres à vin\nFlûtes à champagne",
@@ -58,7 +58,7 @@
           "settings": {
             "image": "shopify://shop_images/formule-lucie-set-complet.jpg",
             "name": "Lucie",
-            "price": "0,70 €",
+            "price": "À partir de 0,70 €",
             "price_unit": "/ pièce",
             "description": "Des matières nobles et des finitions dorées pour une table raffinée.",
             "included": "Fourchettes\nCouteaux\nCuillères à dessert\nCuillères à entrée\nVerres à eau\nVerres à vin\nFlûtes à champagne",
@@ -73,7 +73,7 @@
           "settings": {
             "image": "shopify://shop_images/formule-lena-set-complet.jpg",
             "name": "Lena",
-            "price": "1,10 €",
+            "price": "À partir de 1,10 €",
             "price_unit": "/ pièce",
             "description": "L'excellence absolue : porcelaine fine, cristal et pièces d'exception.",
             "included": "Porcelaine fine peinte main\nCouverts argentés\nCristal soufflé bouche\nChemins de table en soie\nDécoration florale assortie",

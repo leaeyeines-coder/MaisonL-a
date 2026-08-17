@@ -29,18 +29,6 @@
                 <small>{{ block.settings.price_unit | default: '/ pièce, dès' }}</small>
               </p>
 
-              {%- if block.settings.included != blank -%}
-                <ul class="formule-card__list">
-                  {%- assign items = block.settings.included | newline_to_br | split: '<br />' -%}
-                  {%- for item in items -%}
-                    {%- assign trimmed = item | strip -%}
-                    {%- if trimmed != blank -%}
-                      <li>{% render 'icon', name: 'check', size: 14 %} {{ trimmed }}</li>
-                    {%- endif -%}
-                  {%- endfor -%}
-                </ul>
-              {%- endif -%}
-
               <a href="{{ block.settings.collection_link | default: '#a-la-carte' }}" class="button {% if block.settings.featured %}button--primary{% else %}button--outline{% endif %} button--full">
                 {{ block.settings.button_label | default: 'Découvrir la formule' }}
               </a>
