@@ -71,6 +71,7 @@
         "formule-luxe": {
           "type": "formule",
           "settings": {
+            "image": "shopify://shop_images/formule-lena-set-complet.jpg",
             "name": "Lena",
             "price": "5,50 €",
             "description": "L'excellence absolue : porcelaine fine, cristal et pièces d'exception.",
