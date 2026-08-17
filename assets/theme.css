@@ -305,7 +305,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   color: var(--color-mocha-dark);
 }
 .formule-card__price-row { display: flex; align-items: baseline; gap: 8px; }
-.formule-card__price-amount { font-family: var(--font-heading); font-weight: 400; font-size: 1.7rem; letter-spacing: 0.02em; color: var(--color-chocolate); }
+.formule-card__price-amount { font-family: var(--font-price); font-style: var(--font-price-style); font-weight: var(--font-price-weight); font-size: 1.9rem; letter-spacing: 0.01em; color: var(--color-chocolate); }
 .formule-card__price small { font-family: var(--font-body); font-size: 0.75rem; color: var(--color-ink-light); }
 .formule-card__description { color: var(--color-ink-light); font-size: 0.92rem; }
 .formule-card__list { display: flex; flex-direction: column; gap: 8px; margin: 10px 0 22px; }

@@ -90,6 +90,12 @@
         "id": "type_body_font",
         "label": "Police du texte courant",
         "default": "jost_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_price_font",
+        "label": "Police des prix",
+        "default": "cormorant_n4"
       }
     ]
   },

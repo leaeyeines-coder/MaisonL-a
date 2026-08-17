@@ -39,6 +39,9 @@
         --font-body: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
         --font-body-style: {{ settings.type_body_font.style }};
         --font-body-weight: {{ settings.type_body_font.weight }};
+        --font-price: {{ settings.type_price_font.family }}, {{ settings.type_price_font.fallback_families }};
+        --font-price-style: {{ settings.type_price_font.style }};
+        --font-price-weight: {{ settings.type_price_font.weight }};
         --logo-width: {{ settings.logo_width }}px;
       }
     {%- endstyle -%}
@@ -46,6 +49,7 @@
     {%- style -%}
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
+      {{ settings.type_price_font | font_face: font_display: 'swap' }}
     {%- endstyle -%}
 
     {{ content_for_header }}
