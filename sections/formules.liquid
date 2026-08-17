@@ -25,8 +25,11 @@
             <div class="formule-card__body">
               <h3>{{ block.settings.name }}</h3>
               <p class="formule-card__price">
-                <span>{{ block.settings.price }}</span>
-                <small>{{ block.settings.price_unit | default: '/ pièce, dès' }}</small>
+                <span class="formule-card__price-label">À partir de</span>
+                <span class="formule-card__price-row">
+                  <span class="formule-card__price-amount">{{ block.settings.price }}</span>
+                  <small>{{ block.settings.price_unit | default: '/ pièce, dès' }}</small>
+                </span>
               </p>
 
               <a href="{{ block.settings.collection_link | default: '#a-la-carte' }}" class="button button--primary button--full">
