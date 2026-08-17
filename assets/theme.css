@@ -662,3 +662,22 @@ ul { list-style: none; margin: 0; padding: 0; }
 /* Generic page */
 .page-content { padding-block: 80px 100px; }
 .page-content__inner { max-width: 760px; }
+
+/* Inspiration gallery page */
+.inspiration-page { padding-block: 40px 100px; }
+.inspiration-page__back { margin-bottom: 28px; }
+.inspiration-page__back a { display: inline-flex; align-items: center; gap: 6px; font-size: 0.86rem; color: var(--color-mocha-dark); }
+.inspiration-page__back svg { transform: rotate(180deg); }
+.inspiration-page__grid {
+  display: grid; grid-template-columns: 1fr; gap: 16px; margin: 40px 0;
+}
+.inspiration-page__photo { border-radius: 16px; overflow: hidden; background: var(--color-bg-alt); }
+.inspiration-page__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.inspiration-page__cta { text-align: center; margin-top: 40px; }
+
+@media (min-width: 600px) {
+  .inspiration-page__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  .inspiration-page__grid { grid-template-columns: repeat(3, 1fr); }
+}

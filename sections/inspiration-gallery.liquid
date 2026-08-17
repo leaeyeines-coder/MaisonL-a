@@ -1,0 +1,43 @@
+<section class="inspiration-page">
+  <div class="container">
+    <div class="inspiration-page__back">
+      <a href="{{ routes.root_url }}#inspirations">{% render 'icon', name: 'arrow-right', size: 14 %} Retour aux inspirations</a>
+    </div>
+
+    <div class="section-heading" data-reveal>
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1>{{ section.settings.heading }}</h1>
+      <p class="section-heading__text">{{ section.settings.text }}</p>
+    </div>
+
+    {%- assign gallery_lines = section.settings.images | newline_to_br | split: '<br />' -%}
+    <div class="inspiration-page__grid" data-reveal>
+      {%- for line in gallery_lines -%}
+        {%- assign url = line | strip -%}
+        {%- if url != blank -%}
+          <div class="inspiration-page__photo">
+            <img src="{{ url }}" alt="{{ section.settings.heading | escape }}" loading="lazy">
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="inspiration-page__cta" data-reveal>
+      <a href="{{ routes.root_url }}?style={{ section.settings.heading | url_encode }}#devis" class="button button--primary">
+        Demander un devis sur ce thème {% render 'icon', name: 'arrow-right', size: 14 %}
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Galerie d'inspiration",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Inspiration" },
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Thème" },
+    { "type": "textarea", "id": "text", "label": "Texte" },
+    { "type": "textarea", "id": "images", "label": "Photos (une URL par ligne)" }
+  ]
+}
+{% endschema %}

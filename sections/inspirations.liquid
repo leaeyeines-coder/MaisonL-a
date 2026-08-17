@@ -18,22 +18,28 @@
           {%- assign gallery_lines = block.settings.gallery | newline_to_br | split: '<br />' -%}
           {%- capture images_json -%}[{%- if block.settings.image -%}{"src":"{{ block.settings.image | image_url: width: 1200 }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}{%- if block.settings.image_2 -%},{"src":"{{ block.settings.image_2 | image_url: width: 1200 }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}{%- if block.settings.image_3 -%},{"src":"{{ block.settings.image_3 | image_url: width: 1200 }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}{%- if block.settings.image_4 -%},{"src":"{{ block.settings.image_4 | image_url: width: 1200 }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}{%- for line in gallery_lines -%}{%- assign url = line | strip -%}{%- if url != blank -%},{"src":"{{ url }}","alt":"{{ block.settings.name | escape }}"}{%- endif -%}{%- endfor -%}]{%- endcapture -%}
           {%- assign first_gallery_url = gallery_lines | first | strip -%}
+          {%- assign gallery_page_url = routes.root_url | append: 'pages/' | append: block.settings.name | handleize -%}
           <li class="inspiration-card" {{ block.shopify_attributes }}>
-            <button type="button" class="inspiration-card__media" data-inspiration-open
-              data-name="{{ block.settings.name | escape }}"
-              data-text="{{ block.settings.text | escape }}"
-              data-devis-href="{{ routes.root_url }}?style={{ block.settings.name | url_encode }}#devis"
-              data-images='{{ images_json }}'
-              aria-label="Voir les idées de décoration {{ block.settings.name | escape }}">
-              {%- if block.settings.image -%}
-                <img src="{{ block.settings.image | image_url: width: 700 }}" alt="{{ block.settings.name | escape }}" width="700" height="{{ 700 | divided_by: block.settings.image.aspect_ratio | default: 500 }}" loading="lazy">
-              {%- elsif first_gallery_url != blank -%}
+            {%- if first_gallery_url != blank -%}
+              <a href="{{ gallery_page_url }}" class="inspiration-card__media" aria-label="Voir les idées de décoration {{ block.settings.name | escape }}">
                 <img src="{{ first_gallery_url }}" alt="{{ block.settings.name | escape }}" loading="lazy">
-              {%- else -%}
-                <div class="inspiration-card__placeholder">{% render 'icon', name: 'sparkle', size: 30 %}</div>
-              {%- endif -%}
-              <span class="inspiration-card__hint">Voir les idées {% render 'icon', name: 'arrow-right', size: 12 %}</span>
-            </button>
+                <span class="inspiration-card__hint">Voir les idées {% render 'icon', name: 'arrow-right', size: 12 %}</span>
+              </a>
+            {%- else -%}
+              <button type="button" class="inspiration-card__media" data-inspiration-open
+                data-name="{{ block.settings.name | escape }}"
+                data-text="{{ block.settings.text | escape }}"
+                data-devis-href="{{ routes.root_url }}?style={{ block.settings.name | url_encode }}#devis"
+                data-images='{{ images_json }}'
+                aria-label="Voir les idées de décoration {{ block.settings.name | escape }}">
+                {%- if block.settings.image -%}
+                  <img src="{{ block.settings.image | image_url: width: 700 }}" alt="{{ block.settings.name | escape }}" width="700" height="{{ 700 | divided_by: block.settings.image.aspect_ratio | default: 500 }}" loading="lazy">
+                {%- else -%}
+                  <div class="inspiration-card__placeholder">{% render 'icon', name: 'sparkle', size: 30 %}</div>
+                {%- endif -%}
+                <span class="inspiration-card__hint">Voir les idées {% render 'icon', name: 'arrow-right', size: 12 %}</span>
+              </button>
+            {%- endif -%}
             <div class="inspiration-card__body">
               <h3>{{ block.settings.name }}</h3>
               <p>{{ block.settings.text }}</p>
