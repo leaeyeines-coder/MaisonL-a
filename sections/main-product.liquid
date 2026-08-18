@@ -5,7 +5,7 @@
 <section class="product" data-product-section data-product-id="{{ product.id }}">
   <div class="container product__grid">
     <div class="product__gallery">
-      <div class="product__gallery-main" data-product-gallery-main>
+      <div class="product__gallery-main" data-product-gallery-main style="max-height:min(38vh,380px);aspect-ratio:1;">
         {%- if product.media.size > 0 -%}
           {%- for media in product.media -%}
             <div class="product__gallery-slide{% if forloop.first %} is-active{% endif %}" data-media-id="{{ media.id }}">
@@ -17,6 +17,7 @@
                 width="{{ media.width }}"
                 height="{{ media.height }}"
                 loading="eager"
+                style="width:100%;height:100%;object-fit:contain;display:block;"
               >
             </div>
           {%- endfor -%}

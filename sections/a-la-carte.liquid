@@ -18,11 +18,11 @@
             {%- assign cat_collection = collections[block.settings.collection] -%}
             <li class="category-tile" {{ block.shopify_attributes }}>
               <a href="{{ cat_collection.url | default: '#' }}">
-                <div class="category-tile__media">
+                <div class="category-tile__media" style="max-width:150px;aspect-ratio:1;margin-inline:auto;">
                   {%- if block.settings.image -%}
-                    <img src="{{ block.settings.image | image_url: width: 500 }}" alt="{{ block.settings.label }}" width="500" height="500" loading="lazy">
+                    <img src="{{ block.settings.image | image_url: width: 300 }}" alt="{{ block.settings.label }}" width="300" height="300" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;">
                   {%- elsif cat_collection.featured_image -%}
-                    <img src="{{ cat_collection.featured_image | image_url: width: 500 }}" alt="{{ block.settings.label }}" width="500" height="500" loading="lazy">
+                    <img src="{{ cat_collection.featured_image | image_url: width: 300 }}" alt="{{ block.settings.label }}" width="300" height="300" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;">
                   {%- else -%}
                     <div class="category-tile__placeholder">{% render 'icon', name: 'leaf', size: 28 %}</div>
                   {%- endif -%}
