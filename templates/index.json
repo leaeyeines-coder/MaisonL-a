@@ -85,24 +85,20 @@
       "block_order": ["formule-eco", "formule-premium", "formule-luxe"],
       "settings": {}
     },
-    "a-la-carte": {
-      "type": "a-la-carte",
+    "inspirations": {
+      "type": "inspirations",
       "blocks": {
-        "cat-fourchettes": { "type": "categorie", "settings": { "label": "Fourchettes", "collection": "fourchettes" } },
-        "cat-couteaux": { "type": "categorie", "settings": { "label": "Couteaux", "collection": "couteaux" } },
-        "cat-cuilleres-dessert": { "type": "categorie", "settings": { "label": "Cuillères à dessert", "collection": "cuillere-a-dessert" } },
-        "cat-cuilleres-entree": { "type": "categorie", "settings": { "label": "Cuillères à entrée", "collection": "cuillere-a-entree" } },
-        "cat-verre-eau": { "type": "categorie", "settings": { "label": "Verre à eau", "collection": "verre-a-eau" } },
-        "cat-verre-vin": { "type": "categorie", "settings": { "label": "Verre à vin", "collection": "verre-a-vin" } },
-        "cat-verre-champagne": { "type": "categorie", "settings": { "label": "Verre à champagne", "collection": "verre-a-champagne" } },
-        "cat-flute-champagne": { "type": "categorie", "settings": { "label": "Flûte à champagne", "collection": "flute-a-champagne" } },
-        "cat-assiettes": { "type": "categorie", "settings": { "label": "Assiettes", "collection": "assiettes" } },
-        "cat-decoration": { "type": "categorie", "settings": { "label": "Décoration", "collection": "decoration" } }
+        "theme-1": {
+          "type": "theme",
+          "settings": {
+            "name": "Dolce Vita",
+            "text": "Citronniers, terracotta et douceur italienne pour une table estivale et ensoleillée. Plusieurs compositions possibles : cliquez pour découvrir nos idées et demander un devis sur ce thème.",
+            "gallery": "https://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/498ee16670697b5aea305df40630ce50aba7e771/misc-source/dolce-vita/dolce-vita-1.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/498ee16670697b5aea305df40630ce50aba7e771/misc-source/dolce-vita/dolce-vita-2.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/498ee16670697b5aea305df40630ce50aba7e771/misc-source/dolce-vita/dolce-vita-3.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/498ee16670697b5aea305df40630ce50aba7e771/misc-source/dolce-vita/dolce-vita-4.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/498ee16670697b5aea305df40630ce50aba7e771/misc-source/dolce-vita/dolce-vita-5.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/498ee16670697b5aea305df40630ce50aba7e771/misc-source/dolce-vita/dolce-vita-6.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/a011d86b7066218edf8d64df857d12ad77ae4adf/misc-source/dolce-vita/dolce-vita-7.jpg"
+          }
+        }
       },
-      "block_order": ["cat-fourchettes", "cat-couteaux", "cat-cuilleres-dessert", "cat-cuilleres-entree", "cat-verre-eau", "cat-verre-vin", "cat-verre-champagne", "cat-flute-champagne", "cat-assiettes", "cat-decoration"],
-      "settings": {
-        "all_link": "/collections/all"
-      }
+      "block_order": ["theme-1"],
+      "settings": {}
     },
     "devis": {
       "type": "devis-form",
@@ -115,5 +111,5 @@
       "settings": {}
     }
   },
-  "order": ["hero", "features", "story", "location", "formules", "a-la-carte", "devis"]
+  "order": ["hero", "features", "story", "location", "formules", "inspirations", "devis"]
 }
