@@ -25,20 +25,23 @@
                 <img src="{{ first_gallery_url }}" alt="{{ block.settings.name | escape }}" loading="lazy">
                 <span class="inspiration-card__hint">Voir les idées {% render 'icon', name: 'arrow-right', size: 12 %}</span>
               </a>
-            {%- else -%}
+            {%- elsif block.settings.image -%}
               <button type="button" class="inspiration-card__media" data-inspiration-open
                 data-name="{{ block.settings.name | escape }}"
                 data-text="{{ block.settings.text | escape }}"
                 data-devis-href="{{ routes.root_url }}?style={{ block.settings.name | url_encode }}#devis"
                 data-images='{{ images_json }}'
                 aria-label="Voir les idées de décoration {{ block.settings.name | escape }}">
-                {%- if block.settings.image -%}
-                  <img src="{{ block.settings.image | image_url: width: 700 }}" alt="{{ block.settings.name | escape }}" width="700" height="{{ 700 | divided_by: block.settings.image.aspect_ratio | default: 500 }}" loading="lazy">
-                {%- else -%}
-                  <div class="inspiration-card__placeholder">{% render 'icon', name: 'sparkle', size: 30 %}</div>
-                {%- endif -%}
+                <img src="{{ block.settings.image | image_url: width: 700 }}" alt="{{ block.settings.name | escape }}" width="700" height="{{ 700 | divided_by: block.settings.image.aspect_ratio | default: 500 }}" loading="lazy">
                 <span class="inspiration-card__hint">Voir les idées {% render 'icon', name: 'arrow-right', size: 12 %}</span>
               </button>
+            {%- else -%}
+              <div class="inspiration-card__media" aria-hidden="true">
+                <div class="inspiration-card__placeholder">
+                  {% render 'icon', name: 'sparkle', size: 30 %}
+                  <span>Photos à venir</span>
+                </div>
+              </div>
             {%- endif -%}
             <div class="inspiration-card__body">
               <h3>{{ block.settings.name }}</h3>
