@@ -104,7 +104,14 @@
             "gallery": "https://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/d7508b1/misc-source/colore/colore-1.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/d7508b1/misc-source/colore/colore-2.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/d7508b1/misc-source/colore/colore-3.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/d7508b1/misc-source/colore/colore-4.jpg"
           }
         },
-        "theme-3": { "type": "theme", "settings": { "name": "Champêtre", "text": "Bois brut, lin naturel et fleurs des champs pour une table simple et chaleureuse." } },
+        "theme-3": {
+          "type": "theme",
+          "settings": {
+            "name": "Champêtre",
+            "text": "Bois brut, lin naturel et fleurs des champs pour une table simple et chaleureuse. Plusieurs compositions possibles : cliquez pour découvrir nos idées et demander un devis sur ce thème.",
+            "gallery": "https://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/b3741b7/misc-source/champetre/champetre-1.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/b3741b7/misc-source/champetre/champetre-2.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/b3741b7/misc-source/champetre/champetre-3.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/b3741b7/misc-source/champetre/champetre-4.jpg"
+          }
+        },
         "theme-4": { "type": "theme", "settings": { "name": "Chic", "text": "Noir, blanc et touches dorées pour une réception sobre et élégante." } }
       },
       "block_order": ["theme-1", "theme-2", "theme-3", "theme-4"],
