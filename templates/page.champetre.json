@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "gallery": {
+      "type": "inspiration-gallery",
+      "settings": {
+        "eyebrow": "Inspiration",
+        "heading": "Champêtre",
+        "text": "Bois brut, lin naturel et fleurs des champs pour une table simple et chaleureuse. Voici plusieurs compositions possibles pour vous inspirer.",
+        "images": "https://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/b3741b7/misc-source/champetre/champetre-1.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/b3741b7/misc-source/champetre/champetre-2.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/b3741b7/misc-source/champetre/champetre-3.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/b3741b7/misc-source/champetre/champetre-4.jpg"
+      }
+    }
+  },
+  "order": ["gallery"]
+}

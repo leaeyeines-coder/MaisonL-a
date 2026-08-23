@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "gallery": {
+      "type": "inspiration-gallery",
+      "settings": {
+        "eyebrow": "Inspiration",
+        "heading": "Coloré",
+        "text": "Des teintes vives et joyeuses pour une réception pleine de peps et de bonne humeur. Voici plusieurs compositions possibles pour vous inspirer.",
+        "images": "https://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/d7508b1/misc-source/colore/colore-1.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/d7508b1/misc-source/colore/colore-2.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/d7508b1/misc-source/colore/colore-3.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/d7508b1/misc-source/colore/colore-4.jpg"
+      }
+    }
+  },
+  "order": ["gallery"]
+}

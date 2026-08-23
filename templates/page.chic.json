@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "gallery": {
+      "type": "inspiration-gallery",
+      "settings": {
+        "eyebrow": "Inspiration",
+        "heading": "Chic",
+        "text": "Noir, blanc et touches dorées pour une réception sobre et élégante. Voici plusieurs compositions possibles pour vous inspirer.",
+        "images": "https://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/8840151/misc-source/chic/chic-1.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/8840151/misc-source/chic/chic-2.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/8840151/misc-source/chic/chic-3.jpg"
+      }
+    }
+  },
+  "order": ["gallery"]
+}
