@@ -112,7 +112,14 @@
             "gallery": "https://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/b3741b7/misc-source/champetre/champetre-1.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/b3741b7/misc-source/champetre/champetre-2.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/b3741b7/misc-source/champetre/champetre-3.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/b3741b7/misc-source/champetre/champetre-4.jpg"
           }
         },
-        "theme-4": { "type": "theme", "settings": { "name": "Chic", "text": "Noir, blanc et touches dorées pour une réception sobre et élégante." } }
+        "theme-4": {
+          "type": "theme",
+          "settings": {
+            "name": "Chic",
+            "text": "Noir, blanc et touches dorées pour une réception sobre et élégante. Plusieurs compositions possibles : cliquez pour découvrir nos idées et demander un devis sur ce thème.",
+            "gallery": "https://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/8840151/misc-source/chic/chic-1.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/8840151/misc-source/chic/chic-2.jpg\nhttps://raw.githubusercontent.com/leaeyeines-coder/MaisonL-a/8840151/misc-source/chic/chic-3.jpg"
+          }
+        }
       },
       "block_order": ["theme-1", "theme-2", "theme-3", "theme-4"],
       "settings": {}
