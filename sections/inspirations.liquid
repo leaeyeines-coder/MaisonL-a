@@ -30,7 +30,7 @@
               <button type="button" class="inspiration-card__media" data-inspiration-open
                 data-name="{{ block.settings.name | escape }}"
                 data-text="{{ block.settings.text | escape }}"
-                data-devis-href="{{ routes.root_url }}?style={{ block.settings.name | url_encode }}#devis"
+                data-devis-href="{{ routes.root_url }}?style={{ block.settings.name | url_encode }}#devis-form"
                 data-images='{{ images_json }}'
                 aria-label="Voir les idées de décoration {{ block.settings.name | escape }}">
                 <img src="{{ block.settings.image | image_url: width: 700 }}" alt="{{ block.settings.name | escape }}" width="700" height="{{ 700 | divided_by: block.settings.image.aspect_ratio | default: 500 }}" loading="lazy">
@@ -47,7 +47,7 @@
             <div class="inspiration-card__body">
               <h3>{{ block.settings.name }}</h3>
               <p>{{ block.settings.text }}</p>
-              <a href="{{ routes.root_url }}?style={{ block.settings.name | url_encode }}#devis" class="button button--outline-light button--small" data-style-link data-style-name="{{ block.settings.name | escape }}">
+              <a href="{{ routes.root_url }}?style={{ block.settings.name | url_encode }}#devis-form" class="button button--outline-light button--small" data-style-link data-style-name="{{ block.settings.name | escape }}">
                 Demander un devis {% render 'icon', name: 'arrow-right', size: 14 %}
               </a>
             </div>

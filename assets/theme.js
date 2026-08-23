@@ -462,7 +462,7 @@ document.addEventListener('click', function (e) {
     }
     if (titleEl) titleEl.textContent = trigger.dataset.name || '';
     if (textEl) textEl.textContent = trigger.dataset.text || '';
-    if (devisEl) devisEl.href = trigger.dataset.devisHref || '#devis';
+    if (devisEl) devisEl.href = trigger.dataset.devisHref || '#devis-form';
 
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';

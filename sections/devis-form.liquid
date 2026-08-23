@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div class="devis__form-wrap" data-reveal>
+    <div class="devis__form-wrap" id="devis-form" data-reveal>
       {% form 'contact', id: 'DevisForm', class: 'devis-form' %}
         {%- if form.posted_successfully? -%}
           <div class="form-success" role="status">
