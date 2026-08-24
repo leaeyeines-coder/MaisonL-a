@@ -5,6 +5,10 @@
   if back_collection == blank
     assign back_collection = product.collections.first
   endif
+  assign contact_only = false
+  if product.tags contains 'sur-contact'
+    assign contact_only = true
+  endif
 -%}
 <section class="product" data-product-section data-product-id="{{ product.id }}">
   <div class="container">
@@ -79,53 +83,60 @@
         {%- if current_variant.compare_at_price > current_variant.price -%}
           <span class="product__price-compare">{{ current_variant.compare_at_price | money }}</span>
         {%- endif -%}
-        {{ current_variant.price | money }}
-        <span class="product__price-unit">/ location, hors caution</span>
+        {%- if contact_only -%}À partir de {% endif -%}{{ current_variant.price | money }}
+        {%- unless contact_only -%}
+          <span class="product__price-unit">/ location, hors caution</span>
+        {%- endunless -%}
       </p>
 
       {%- if product.description != blank -%}
         <div class="product__description rte">{{ product.description }}</div>
       {%- endif -%}
 
-      {% form 'product', product, id: 'ProductForm', class: 'product-form' %}
-        <input type="hidden" name="id" value="{{ current_variant.id }}" data-product-variant-id>
+      {%- if contact_only -%}
+        <a href="mailto:{{ settings.shop_email }}?subject={{ product.title | url_encode }}" class="button button--primary button--full">Nous contacter par mail</a>
+        <a href="{{ routes.root_url }}?style={{ product.title | url_encode }}#devis-form" class="button button--ghost button--full">Demander un devis pour ce mariage</a>
+      {%- else -%}
+        {% form 'product', product, id: 'ProductForm', class: 'product-form' %}
+          <input type="hidden" name="id" value="{{ current_variant.id }}" data-product-variant-id>
 
-        {%- for option in product.options_with_values -%}
-          <div class="form-field product-form__option">
-            <label>{{ option.name }}</label>
-            <div class="option-pills" data-option-index="{{ forloop.index0 }}">
-              {%- for value in option.values -%}
-                {%- assign pill_variant = product.variants | where: 'option1', value | first -%}
-                <a
-                  href="{{ pill_variant.url | default: product.url }}"
-                  class="option-pill{% if value == option.selected_value %} is-active{% endif %}"
-                  data-option-value="{{ value | escape }}"
-                >{{ value }}</a>
-              {%- endfor -%}
+          {%- for option in product.options_with_values -%}
+            <div class="form-field product-form__option">
+              <label>{{ option.name }}</label>
+              <div class="option-pills" data-option-index="{{ forloop.index0 }}">
+                {%- for value in option.values -%}
+                  {%- assign pill_variant = product.variants | where: 'option1', value | first -%}
+                  <a
+                    href="{{ pill_variant.url | default: product.url }}"
+                    class="option-pill{% if value == option.selected_value %} is-active{% endif %}"
+                    data-option-value="{{ value | escape }}"
+                  >{{ value }}</a>
+                {%- endfor -%}
+              </div>
             </div>
+          {%- endfor -%}
+
+          <div class="form-field product-form__quantity">
+            <label for="ProductQuantity">Quantité</label>
+            <quantity-input class="quantity-input">
+              <button type="button" data-qty-decrease aria-label="Diminuer la quantité">{% render 'icon', name: 'minus', size: 14 %}</button>
+              <input type="number" id="ProductQuantity" name="quantity" value="1" min="1" data-qty-input>
+              <button type="button" data-qty-increase aria-label="Augmenter la quantité">{% render 'icon', name: 'plus', size: 14 %}</button>
+            </quantity-input>
           </div>
-        {%- endfor -%}
 
-        <div class="form-field product-form__quantity">
-          <label for="ProductQuantity">Quantité</label>
-          <quantity-input class="quantity-input">
-            <button type="button" data-qty-decrease aria-label="Diminuer la quantité">{% render 'icon', name: 'minus', size: 14 %}</button>
-            <input type="number" id="ProductQuantity" name="quantity" value="1" min="1" data-qty-input>
-            <button type="button" data-qty-increase aria-label="Augmenter la quantité">{% render 'icon', name: 'plus', size: 14 %}</button>
-          </quantity-input>
-        </div>
-
-        <button type="submit" class="button button--primary button--full" data-add-to-cart {% unless current_variant.available %}disabled{% endunless %}>
-          <span data-add-to-cart-text>
-            {%- if current_variant.available -%}
-              Ajouter à ma réservation
-            {%- else -%}
-              Rupture de stock
-            {%- endif -%}
-          </span>
-        </button>
-        <a href="{{ routes.root_url }}#devis" class="button button--ghost button--full">Demander un devis pour ce mariage</a>
-      {% endform %}
+          <button type="submit" class="button button--primary button--full" data-add-to-cart {% unless current_variant.available %}disabled{% endunless %}>
+            <span data-add-to-cart-text>
+              {%- if current_variant.available -%}
+                Ajouter à ma réservation
+              {%- else -%}
+                Rupture de stock
+              {%- endif -%}
+            </span>
+          </button>
+          <a href="{{ routes.root_url }}#devis-form" class="button button--ghost button--full">Demander un devis pour ce mariage</a>
+        {% endform %}
+      {%- endif -%}
 
       <div class="product__accordions">
         {%- for block in section.blocks -%}
