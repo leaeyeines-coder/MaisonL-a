@@ -265,6 +265,10 @@ document.addEventListener('click', function (e) {
   var slides = section.querySelectorAll('[data-product-gallery-main] .product__gallery-slide');
   var isProgrammaticScroll = false;
 
+  function normalize(str) {
+    return (str || '').toString().trim().toLowerCase();
+  }
+
   function selectedOptionValues() {
     var values = [];
     section.querySelectorAll('.option-pills').forEach(function (group) {
@@ -277,7 +281,7 @@ document.addEventListener('click', function (e) {
   function findVariant(values) {
     return variants.find(function (variant) {
       var options = [variant.option1, variant.option2, variant.option3];
-      return values.every(function (val, i) { return val === null || options[i] === val; });
+      return values.every(function (val, i) { return val === null || normalize(options[i]) === normalize(val); });
     });
   }
 
