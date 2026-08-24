@@ -100,21 +100,23 @@
         {% form 'product', product, id: 'ProductForm', class: 'product-form' %}
           <input type="hidden" name="id" value="{{ current_variant.id }}" data-product-variant-id>
 
-          {%- for option in product.options_with_values -%}
-            <div class="form-field product-form__option">
-              <label>{{ option.name }}</label>
-              <div class="option-pills" data-option-index="{{ forloop.index0 }}">
-                {%- for value in option.values -%}
-                  {%- assign pill_variant = product.variants | where: 'option1', value | first -%}
-                  <a
-                    href="{{ pill_variant.url | default: product.url }}"
-                    class="option-pill{% if value == option.selected_value %} is-active{% endif %}"
-                    data-option-value="{{ value | escape }}"
-                  >{{ value }}</a>
-                {%- endfor -%}
+          {%- unless product.has_only_default_variant -%}
+            {%- for option in product.options_with_values -%}
+              <div class="form-field product-form__option">
+                <label>{{ option.name }}</label>
+                <div class="option-pills" data-option-index="{{ forloop.index0 }}">
+                  {%- for value in option.values -%}
+                    {%- assign pill_variant = product.variants | where: 'option1', value | first -%}
+                    <a
+                      href="{{ pill_variant.url | default: product.url }}"
+                      class="option-pill{% if value == option.selected_value %} is-active{% endif %}"
+                      data-option-value="{{ value | escape }}"
+                    >{{ value }}</a>
+                  {%- endfor -%}
+                </div>
               </div>
-            </div>
-          {%- endfor -%}
+            {%- endfor -%}
+          {%- endunless -%}
 
           <div class="form-field product-form__quantity">
             <label for="ProductQuantity">Quantité</label>
