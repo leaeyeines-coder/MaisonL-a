@@ -1,8 +1,19 @@
 {%- liquid
   assign product = product
   assign current_variant = product.selected_or_first_available_variant
+  assign back_collection = collection
+  if back_collection == blank
+    assign back_collection = product.collections.first
+  endif
 -%}
 <section class="product" data-product-section data-product-id="{{ product.id }}">
+  <div class="container">
+    {%- if back_collection != blank -%}
+      <div class="product__back">
+        <a href="{{ back_collection.url }}">{% render 'icon', name: 'arrow-right', size: 14 %} Retour {{ back_collection.title | downcase }}</a>
+      </div>
+    {%- endif -%}
+  </div>
   <div class="container product__grid">
     <div class="product__gallery">
       <div class="product__gallery-main" data-product-gallery-main style="max-height:min(38vh,380px);aspect-ratio:1;">
