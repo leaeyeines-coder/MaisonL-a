@@ -95,11 +95,12 @@
             <label>{{ option.name }}</label>
             <div class="option-pills" data-option-index="{{ forloop.index0 }}">
               {%- for value in option.values -%}
-                <button
-                  type="button"
+                {%- assign pill_variant = product.variants | where: 'option1', value | first -%}
+                <a
+                  href="{{ pill_variant.url | default: product.url }}"
                   class="option-pill{% if value == option.selected_value %} is-active{% endif %}"
                   data-option-value="{{ value | escape }}"
-                >{{ value }}</button>
+                >{{ value }}</a>
               {%- endfor -%}
             </div>
           </div>

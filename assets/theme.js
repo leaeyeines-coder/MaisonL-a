@@ -321,12 +321,13 @@ document.addEventListener('click', function (e) {
 
   section.querySelectorAll('.option-pills').forEach(function (group) {
     group.querySelectorAll('.option-pill').forEach(function (pill) {
-      pill.addEventListener('click', function () {
+      pill.addEventListener('click', function (e) {
         group.querySelectorAll('.option-pill').forEach(function (p) { p.classList.remove('is-active'); });
         pill.classList.add('is-active');
 
         var match = findVariant(selectedOptionValues());
-        if (!match) return;
+        if (!match) return; // let the pill's own link do a full reload with the correct price
+        e.preventDefault();
         applyVariant(match);
         var mediaId = variantMediaMap[match.id];
         if (mediaId) scrollGalleryToMedia(mediaId);
