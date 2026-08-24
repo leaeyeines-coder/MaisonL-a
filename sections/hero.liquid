@@ -32,7 +32,10 @@
         <a href="{{ section.settings.primary_link | default: '#formules' }}" class="button button--primary">{{ section.settings.primary_label }}</a>
       {%- endif -%}
       {%- if section.settings.secondary_label != blank -%}
-        <a href="{{ section.settings.secondary_link | default: '#devis' }}" class="button button--outline-light">{{ section.settings.secondary_label }}</a>
+        <a href="{{ section.settings.secondary_link | default: '#devis-form' }}" class="button button--outline-light">{{ section.settings.secondary_label }}</a>
+      {%- endif -%}
+      {%- if section.settings.tertiary_label != blank -%}
+        <a href="{{ section.settings.tertiary_link | default: '#inspirations' }}" class="button button--outline-light">{{ section.settings.tertiary_label }}</a>
       {%- endif -%}
     </div>
   </div>
@@ -54,7 +57,9 @@
     { "type": "text", "id": "primary_label", "label": "Bouton principal", "default": "Découvrir nos formules" },
     { "type": "url", "id": "primary_link", "label": "Lien du bouton principal" },
     { "type": "text", "id": "secondary_label", "label": "Bouton secondaire", "default": "Demander un devis" },
-    { "type": "url", "id": "secondary_link", "label": "Lien du bouton secondaire" }
+    { "type": "url", "id": "secondary_link", "label": "Lien du bouton secondaire" },
+    { "type": "text", "id": "tertiary_label", "label": "Bouton tertiaire", "default": "Découvrir nos inspirations" },
+    { "type": "url", "id": "tertiary_link", "label": "Lien du bouton tertiaire" }
   ],
   "presets": [{ "name": "Hero" }]
 }
