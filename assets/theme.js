@@ -498,15 +498,9 @@ document.addEventListener('click', function (e) {
   if (!style) return;
 
   var styleField = document.getElementById('DevisStyleField');
-  var styleNote = document.getElementById('DevisStyleNote');
   var messageField = document.getElementById('DevisMessage');
 
   if (styleField) styleField.value = style;
-  if (styleNote) {
-    styleNote.hidden = false;
-    var valueEl = styleNote.querySelector('[data-style-note-value]');
-    if (valueEl) valueEl.textContent = style;
-  }
   if (messageField && !messageField.value) {
     messageField.value = 'Je suis intéressé·e par le thème "' + style + '". ';
   }
