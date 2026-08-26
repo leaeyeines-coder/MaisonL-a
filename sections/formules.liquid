@@ -25,10 +25,12 @@
             <div class="formule-card__body">
               <h3>{{ block.settings.name }}</h3>
               <p class="formule-card__price">
-                <span class="formule-card__price-label">À partir de</span>
+                {%- if block.settings.price_label != blank -%}
+                  <span class="formule-card__price-label">{{ block.settings.price_label }}</span>
+                {%- endif -%}
                 <span class="formule-card__price-row">
                   <span class="formule-card__price-amount">{{ block.settings.price }}</span>
-                  <small>{{ block.settings.price_unit | default: '/ pièce, dès' }}</small>
+                  {%- if block.settings.price_unit != blank -%}<small>{{ block.settings.price_unit }}</small>{%- endif -%}
                 </span>
               </p>
 
@@ -63,6 +65,7 @@
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Photo" },
         { "type": "text", "id": "name", "label": "Nom", "default": "Emma" },
+        { "type": "text", "id": "price_label", "label": "Texte avant le prix", "default": "À partir de" },
         { "type": "text", "id": "price", "label": "Prix", "default": "1,90 €" },
         { "type": "text", "id": "price_unit", "label": "Unité de prix", "default": "/ pièce, dès" },
         { "type": "textarea", "id": "description", "label": "Description", "default": "L'essentiel, dans des lignes épurées et intemporelles." },

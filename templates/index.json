@@ -80,9 +80,22 @@
             "button_label": "Découvrir la formule Lena",
             "collection_link": "/collections/formule-luxe"
           }
+        },
+        "formule-wedding-planning": {
+          "type": "formule",
+          "settings": {
+            "name": "Wedding planning et coordination jour J",
+            "price_label": "",
+            "price": "Sur devis",
+            "price_unit": "",
+            "description": "Un accompagnement sur mesure pour organiser votre mariage sereinement, du premier rendez-vous jusqu'au jour J.",
+            "included": "Conseil et organisation personnalisée\nCoordination des prestataires\nPlanning détaillé du jour J\nPrésence et coordination le jour J\nGestion des imprévus",
+            "button_label": "Demander un devis",
+            "collection_link": "/#devis-form"
+          }
         }
       },
-      "block_order": ["formule-eco", "formule-premium", "formule-luxe"],
+      "block_order": ["formule-eco", "formule-premium", "formule-luxe", "formule-wedding-planning"],
       "settings": {}
     },
     "inspirations": {
