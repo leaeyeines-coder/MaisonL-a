@@ -2,7 +2,6 @@
   <div class="container story__grid">
     <div class="story__media" data-reveal>
       {%- if section.settings.image -%}
-        <div class="story__media-bg" style="background-image:url('{{ section.settings.image | image_url: width: 100 }}');"></div>
         <img
           class="story__media-img"
           src="{{ section.settings.image | image_url: width: 1200 }}"
