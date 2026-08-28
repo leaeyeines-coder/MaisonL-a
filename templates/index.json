@@ -2,9 +2,7 @@
   "sections": {
     "hero": {
       "type": "hero",
-      "settings": {
-        "image": "shopify://shop_images/hero-table-mariage.jpg"
-      }
+      "settings": {}
     },
     "features": {
       "type": "features",
