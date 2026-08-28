@@ -26,6 +26,7 @@
       },
       "block_order": ["stat-1", "stat-2", "stat-3"],
       "settings": {
+        "image": "shopify://shop_images/histoire-gateau-mariage.jpg",
         "text": "<p>Tout commence en 2024, dans le Var, avec notre pâtisserie de mariage : wedding cakes et pièces montées confectionnés pour les plus beaux jours. À force d'imaginer les tables qui accueillaient nos créations, l'envie est venue naturellement de vous accompagner plus loin, jusque dans le choix de votre vaisselle.</p><p>Maison Palma est née de cette suite logique. Nous sélectionnons aujourd'hui vaisselle, verrerie et couverts avec la même exigence que nos gâteaux : des pièces élégantes et intemporelles, pensées pour que le jour J, vous n'ayez à penser à rien.</p>"
       }
     },
