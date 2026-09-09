@@ -99,6 +99,22 @@
           </div>
         </fieldset>
 
+        <fieldset class="form-field form-field--checkboxes">
+          <legend>Prestataires souhaités</legend>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="contact[Prestataires][]" value="DJ"> DJ</label>
+            <label><input type="checkbox" name="contact[Prestataires][]" value="Wedding cake et pâtisserie"> Wedding cake &amp; pâtisserie</label>
+            <label><input type="checkbox" name="contact[Prestataires][]" value="Coiffeuse"> Coiffeuse</label>
+            <label><input type="checkbox" name="contact[Prestataires][]" value="Photographe"> Photographe</label>
+            <label><input type="checkbox" name="contact[Prestataires][]" value="Fleuriste"> Fleuriste</label>
+            <label><input type="checkbox" name="contact[Prestataires][]" value="Maquilleuse"> Maquilleuse</label>
+            <label><input type="checkbox" name="contact[Prestataires][]" value="Décoratrice"> Décoratrice</label>
+            <label><input type="checkbox" name="contact[Prestataires][]" value="Officiante cérémonie laïque"> Officiante cérémonie laïque</label>
+            <label><input type="checkbox" name="contact[Prestataires][]" value="Vidéaste"> Vidéaste</label>
+            <label><input type="checkbox" name="contact[Prestataires][]" value="Plusieurs prestataires"> Plusieurs prestataires</label>
+          </div>
+        </fieldset>
+
         <div class="form-field">
           <label for="DevisMessage">Parlez-nous de votre projet</label>
           <textarea id="DevisMessage" name="contact[body]" rows="4" placeholder="Style de table, univers, contraintes particulières...">{{ form.body }}</textarea>
