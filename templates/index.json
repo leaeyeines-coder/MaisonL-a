@@ -11,7 +11,7 @@
       "blocks": {
         "feature-1": { "type": "feature", "settings": { "icon": "vase", "heading": "Sélectionné avec soin", "text": "Des pièces élégantes et intemporelles." } },
         "feature-2": { "type": "feature", "settings": { "icon": "heart", "heading": "Pour votre plus beau jour", "text": "Mariages, fiançailles et réceptions." } },
-        "feature-3": { "type": "feature", "settings": { "icon": "truck", "heading": "Livraison ou retrait", "text": "Partout où votre mariage vous mène." } },
+        "feature-3": { "type": "feature", "settings": { "icon": "map-pin", "heading": "Retrait au local", "text": "Sur rendez-vous, à Carnoules (Var)." } },
         "feature-4": { "type": "feature", "settings": { "icon": "sparkle", "heading": "Service sur mesure", "text": "Un accompagnement personnalisé de A à Z." } }
       },
       "block_order": ["feature-1", "feature-2", "feature-3", "feature-4"],
@@ -129,7 +129,7 @@
       "blocks": {
         "point-1": { "type": "point", "settings": { "text": "Réponse sous 48h" } },
         "point-2": { "type": "point", "settings": { "text": "Devis gratuit et sans engagement" } },
-        "point-3": { "type": "point", "settings": { "text": "Livraison & reprise possibles" } }
+        "point-3": { "type": "point", "settings": { "text": "Retrait au local uniquement (Carnoules)" } }
       },
       "block_order": ["point-1", "point-2", "point-3"],
       "settings": {}

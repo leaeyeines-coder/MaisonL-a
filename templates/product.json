@@ -4,7 +4,7 @@
       "type": "main-product",
       "blocks": {
         "accordion-1": { "type": "accordion", "settings": { "title": "Entretien & consignes", "content": "<p>Merci de rincer sommairement la vaisselle avant restitution. Le lavage complet est assuré par notre atelier.</p>" } },
-        "accordion-2": { "type": "accordion", "settings": { "title": "Livraison & reprise", "content": "<p>Livraison et reprise disponibles en Île-de-France. Retrait possible dans notre showroom sur rendez-vous.</p>" } },
+        "accordion-2": { "type": "accordion", "settings": { "title": "Retrait & restitution", "content": "<p>Aucune livraison n'est proposée. Le retrait et la restitution s'effectuent uniquement sur rendez-vous, à notre local à Carnoules (Var).</p>" } },
         "accordion-3": { "type": "accordion", "settings": { "title": "Caution", "content": "<p>Une caution est demandée à la réservation, restituée intégralement après contrôle de la vaisselle au retour.</p>" } }
       },
       "block_order": ["accordion-1", "accordion-2", "accordion-3"],
