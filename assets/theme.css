@@ -500,6 +500,9 @@ ul { list-style: none; margin: 0; padding: 0; }
   padding-block: 20px; margin-top: 20px; font-size: 0.76rem;
 }
 .site-footer__bottom .container { display: flex; flex-direction: column; gap: 6px; }
+.site-footer__legal { display: flex; gap: 16px; flex-wrap: wrap; }
+.site-footer__legal a { color: rgba(255,253,249,0.65); text-decoration: underline; text-underline-offset: 2px; }
+.site-footer__legal a:hover { color: #fff; }
 
 @media (min-width: 700px) { .site-footer__top { grid-template-columns: 1.3fr 1fr 1fr 1.2fr; } }
 @media (min-width: 700px) { .site-footer__bottom .container { flex-direction: row; justify-content: space-between; } }
